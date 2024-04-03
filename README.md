@@ -12,11 +12,15 @@ Start by forking this repository to your GitHub account. You can do this by clic
 After forking, clone your forked repository to your local machine. You can do this using the following command in your terminal:
 
 `git clone <your-fork-url>`
+
 - Create a Branch:
 Create a new branch with your name. 
 You can create a new branch like this:
 
 `git checkout -b YourName`
+
+- Install dependencies:
+Run `npm install` to install all dependencies
 
 - Implement the Design:
 Use the Figma file provided in the link to implement the design. Make sure to refer to the design and use it as a guideline for your implementation.
