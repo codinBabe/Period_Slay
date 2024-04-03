@@ -5,11 +5,8 @@ Period Slayer is simple yet profound app, aim to eradicate menstrual poverty, pr
 ## Instructions for collaborators
 Follow these steps to contribute to the project:
 
-- Fork the Repository:
-Start by forking this repository to your GitHub account. You can do this by clicking the "Fork" button at the top right of the repository page.
-
 - Clone the Repository:
-After forking, clone your forked repository to your local machine. You can do this using the following command in your terminal:
+After being added as collaborator, clone this repository to your local machine. You can do this using the following command in your terminal:
 
 `git clone <your-fork-url>`
 
