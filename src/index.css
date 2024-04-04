@@ -2,11 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+html{
+    @apply scroll-smooth
+}
+
 body{
-    font-family: "Jost", sans-serif;
-    font-weight: 400;
-    font-style: normal;
+    @apply font-Jost antialiased leading-snug 
 }
 img{
-    max-width: 80%;
+    max-width: 100%;
 }

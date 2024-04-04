@@ -1,7 +1,5 @@
 import React from 'react';
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import Header from './components/Header';
-import Footer from './components/Footer';
 import PeriodTracker from './pages/Tracker';
 import Contact from './pages/Contact';
 import Home from './pages/Home';

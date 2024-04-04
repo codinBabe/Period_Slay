@@ -7,7 +7,7 @@ export default function Header() {
         <nav className='text-primary500'>
             <div className='container mx-auto'>
                 <div className='flex items-center justify-between'>
-                    <Link to="/"><img src={Logo} alt='logo' /></Link>
+                    <Link to="/"><img src={Logo} alt='logo' width={150} /></Link>
                     <ul className='flex items-center gap-4 font-semibold text-xs'>
                         <li>
                             <Link to="/blog">Health Blog</Link>

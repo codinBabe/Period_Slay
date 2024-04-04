@@ -11,7 +11,7 @@ export default function Footer() {
         <footer className='bg-primary400 text-primary500'>
             <div className='container px-20 py-8 mx-auto'>
                 <div className='flex items-center justify-between'>
-                    <Link to="/"><img src={Logo} alt='Logo' /></Link>
+                    <Link to="/"><img src={Logo} alt='Logo' width={150}/></Link>
                     <ul className='flex items-center gap-3 font-semibold text-xs'>
                         <li>
                             <Link to="/tracker">Period Tracker</Link>
