@@ -6,13 +6,15 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary500:'#b20000',
-        primary400:'#de9f9f'
+        primary500:'#ba0000',
+        primary400:'#de9f9f',
+        neutral: '#EDEDED'
       },
       fontFamily: {
         DmSerif: ["DM Serif Display", "sans-serif"],
         Jost: ["Jost", "sans-serif"],
       },
+     
     },
   },
   plugins: [],
