@@ -8,7 +8,7 @@ export default function Header() {
             <div className='container mx-auto'>
                 <div className='flex items-center justify-between'>
                     <Link to="/"><img src={Logo} alt='logo' width={150} /></Link>
-                    <ul className='flex items-center gap-4 font-semibold text-xs'>
+                    <ul className='flex items-center gap-4 font-medium text-base'>
                         <li>
                             <Link to="/blog">Health Blog</Link>
                         </li>
@@ -22,7 +22,7 @@ export default function Header() {
                             <Link to="/contact">Contact</Link>
                         </li>
                     </ul>
-                    <ul className='flex items-center gap-5 font-semibold text-xs'>
+                    <ul className='flex items-center gap-5 font-medium text-base'>
                         <li>
                             <Link to="/login">Log in</Link>
                         </li>

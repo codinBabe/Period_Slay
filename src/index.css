@@ -9,6 +9,3 @@ html{
 body{
     @apply font-Jost antialiased leading-snug 
 }
-img{
-    max-width: 100%;
-}

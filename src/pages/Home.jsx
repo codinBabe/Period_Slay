@@ -11,15 +11,15 @@ export default function Home() {
             <Header />
             <main>
                 <section className='bg-primary500 text-white'>
-                    <div className='container mx-auto'>
+                    <div className='container px-4 py-10 mx-auto'>
                         <div className='flex items-center'>
                             <div>
                                 <h1 className='font-DmSerif font-medium text-4xl mb-6'>Learn More About Your Menstrual Health and Stay Updated on Your Cycle</h1>
                                 <p className='text-md mb-5'>Welcome to Period slayer, where you can access educational resources on puberty,<br /> learn more about your monthly period and other health issues. </p>
-                                <button className='bg-white text-sm text-primary500 py-2 px-6 rounded-md'>Learn More...</button>
+                                <button className='bg-white text-md text-primary500 py-4 px-8 rounded-md'>Learn More...</button>
                             </div>
-                            <div className='grow'>
-                                <img src={Womanwithafro} alt='woman with afro hairstyle' />
+                            <div className='relative'>
+                                <img src={Womanwithafro} alt='woman with afro hairstyle' className='object-contain w-full h-full'/>
                             </div>
                         </div>
                     </div>
@@ -52,7 +52,7 @@ export default function Home() {
                         <h2 className='font-DmSerif text-2xl text-primary500'>Stay Informed, Stay Healthy</h2>
                         <p className='text-xl'>Discover informative and engaging blog posts on various health topics.</p>
                         <div>
-                            <div><img src={WomanExercise} alt='placeholder-image' /></div>
+                            <div><img src={WomanExercise} alt='placeholder' /></div>
                             <p>Health</p>
                             <div>
                                 <h3>The Role of Exercise in Menstrual Health: Benefits and Best Practices</h3>
