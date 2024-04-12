@@ -7,12 +7,14 @@ module.exports = {
     extend: {
       colors: {
         primary500:'#ba0000',
-        primary400:'#de9f9f'
+        primary400:'#de9f9f',
+        neutral: '#EDEDED'
       },
       fontFamily: {
         DmSerif: ["DM Serif Display", "sans-serif"],
         Jost: ["Jost", "sans-serif"],
       },
+     
     },
   },
   plugins: [],
