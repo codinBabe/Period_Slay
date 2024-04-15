@@ -9,3 +9,9 @@ html{
 body{
     @apply font-Jost antialiased leading-snug 
 }
+div.tabs >*{
+    @apply text-primary500
+}
+div.tabs > ul li>.active{
+  @apply text-neutral1000
+}
