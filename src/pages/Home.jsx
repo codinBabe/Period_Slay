@@ -28,7 +28,7 @@ export default function Home() {
                         <div className='grid grid-cols-2 items-center'>
                             <div>
                                 <h1 className='font-DmSerif text-5xl mb-6'>Learn More About Your Menstrual Health and Stay Updated on Your Cycle</h1>
-                                <p className='text-xl mb-5'>Welcome to Period slayer, where you can access educational resources on puberty,<br /> learn more about your monthly period and other health issues. </p>
+                                <p className='text-xl mb-5'>Welcome to Period slayer, where you can access educational resources on puberty, learn more about your monthly period and other health issues. </p>
                                 <button className='bg-white text-lg font-medium text-primary500 py-4 px-8 rounded-md'>Learn More...</button>
                             </div>
                             <img src={Womanwithafro} alt='woman with afro hairstyle' />
