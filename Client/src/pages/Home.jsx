@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Womanwithafro from "../assets/woman-with-afro.png";
-import PlaceholderImage from "../assets/Placeholder Image.png";
 import WomanExercise from "../assets/woman_exercising.png";
 import PeriodCalender from "../assets/period calendar.png";
 import UterusPic from "../assets/uterus.png";
@@ -15,24 +14,23 @@ import HomeIcon6 from "../assets/home-icon-6.svg";
 import Newsletter from "../components/Newsletter";
 import { Link } from "react-router-dom";
 import MyModal from "../components/Modal";
+import InfoSection from "../components/InfoSection";
 export default function Home() {
   const [modalOpen, setModalOpen] = useState(true);
+  const isAuthenticated = () => {
+    const token = localStorage.getItem("token");
+    return !!token;
+  };
 
   return (
     <>
       <Header />
-      <MyModal isOpen={modalOpen} closeModal={() => setModalOpen(false)}>
-        <p className="font-DmSerif text-[52px]">
-          Stay in the Know: Are You in Your Safe Period?
-        </p>
-        <p className="font-semibold text-white text-xl">
-          Click{" "}
-          <Link className="text-primary200" to="/">
-            here
-          </Link>{" "}
-          to find out
-        </p>
-      </MyModal>
+      <MyModal
+        isOpen={modalOpen}
+        closeModal={() => setModalOpen(false)}
+        isAuthenticated={isAuthenticated}
+      />
+
       <main>
         <section className="hero bg-primary500 text-white">
           <div className="container mx-auto py-28">
@@ -67,6 +65,7 @@ export default function Home() {
             </div>
           </div>
         </section>
+
         <section className="my-12">
           <div className="container mx-auto">
             <div className="flex items-center justify-between">
@@ -128,6 +127,9 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        <InfoSection />
+ 3e52dfd78584b7cc382f3c5e637d57b746733d49
         <section>
           <div className="container mx-auto">
             <h2 className="font-DmSerif text-5xl text-primary500">

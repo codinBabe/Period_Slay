@@ -9,6 +9,7 @@ module.exports = {
         primary500: "#ba0000",
         primary400: "#de9f9f",
         neutral: "#EDEDED",
+        neutralNeutral: "#666666",
         neutral200: "#D7D6D6",
         neutral700: "#8D8C8C",
         neutral800: "#7D7D7D",

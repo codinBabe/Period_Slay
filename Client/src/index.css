@@ -30,3 +30,13 @@ div.login-icon > button {
 div.validation ul > li {
   @apply flex items-center italic;
 }
+div.create-blog-form form > label {
+  @apply block my-4 text-lg;
+}
+div.create-blog-form input,
+textarea {
+  @apply w-full px-4 py-2 border rounded-md;
+}
+div.headingBtn button {
+  @apply w-full text-white bg-primary500 rounded-md p-2;
+}

@@ -1,5 +1,6 @@
-import React from 'react';
+import React from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+HEAD
 import PeriodTracker from './pages/Tracker';
 import Contact from './pages/Contact';
 import Home from './pages/Home';
@@ -8,6 +9,21 @@ import Blog from './pages/Blog';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import Faq from './pages/Faq';
+import PeriodTracker from "./pages/Tracker";
+import Contact from "./pages/Contact";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Blog from "./pages/Blog";
+import Login from "./pages/Login";
+import SignUp from "./pages/SignUp";
+import Profile from "./pages/Profile";
+import CreateBlog from "./pages/CreateBlog";
+import BlogPost from "./pages/BlogPost";
+const isAuthenticated = () => {
+  const token = localStorage.getItem("token");
+  return !!token;
+};
+e52dfd78584b7cc382f3c5e637d57b746733d49
 
 let router = createBrowserRouter([
   {
@@ -16,27 +32,39 @@ let router = createBrowserRouter([
   },
   {
     path: "/login",
-    element: <Login/>,
+    element: <Login />,
   },
   {
     path: "/signup",
     element: <SignUp />,
   },
   {
+    path: "/profile",
+    element: isAuthenticated() ? <Profile /> : <Home />,
+  },
+  {
     path: "/blog",
-    element: <Blog />,
+    element: isAuthenticated() ? <Blog /> : <Home />,
+  },
+  {
+    path: "/blog/new",
+    element: isAuthenticated() ? <CreateBlog /> : <Home />,
+  },
+  {
+    path: "/blog/:id",
+    element: isAuthenticated() ? <BlogPost /> : <Home />,
   },
   {
     path: "/tracker",
-    element: <PeriodTracker />,
+    element: isAuthenticated() ? <PeriodTracker /> : <Home />,
   },
   {
     path: "/about",
-    element: <About />,
+    element: isAuthenticated() ? <About /> : <Home />,
   },
   {
     path: "/contact",
-    element: <Contact />,
+    element: isAuthenticated() ? <Contact /> : <Home />,
   },
   {
     path: "/faq",
@@ -50,4 +78,3 @@ export default function App() {
     </>
   );
 }
-

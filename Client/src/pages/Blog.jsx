@@ -1,15 +1,112 @@
-import React from 'react';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import React, { useEffect, useState } from "react";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import BlogCard from "../components/BlogCard";
+import Newsletter from "../components/Newsletter";
+import InfoSection from "../components/InfoSection";
 
 export default function Blog() {
-    return (
-        <>
-            <Header/>
-            <main>
-                <h1>Blog Page</h1>
-            </main>
-            <Footer/>
-        </>
-    );
+  const [blog, setBlog] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState("View all");
+  useEffect(() => {
+    fetch("/blog").then((res) => {
+      res.json().then((blog) => setBlog(blog));
+    });
+  }, []);
+
+  const categories = [
+    "View all",
+    ...new Set(blog.map((item) => item.categories)),
+  ];
+
+  return (
+    <>
+      <Header />
+      <main>
+        <section className="bg-primary500 text-white">
+          <div className="container mx-auto py-28">
+            <div className="w-[974px] h-[146px]">
+              <h1 className="font-DmSerif text-[32px] mb-5">
+                Discover Health and Wellness
+              </h1>
+              <p className="text-xl">
+                Whether you're navigating puberty, managing your menstrual
+                cycle, or seeking advice on sexual health, our expertly curated
+                content aims to inform, inspire, and support you every step of
+                the way. Join us as we explore a range of topics designed to
+                educate, uplift, and empower you to live your healthiest life.
+              </p>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div className="container mx-auto py-28">
+            <div></div>
+          </div>
+        </section>
+        <section>
+          <div className="container mx-auto my-8">
+            <div className="mb-2">
+              {categories.map((category) => (
+                <button
+                  onClick={() => setSelectedCategory(category)}
+                  className={`mr-4 text-base ${
+                    selectedCategory === category
+                      ? "text-neutralNeutral"
+                      : "text-primary500"
+                  }`}
+                >
+                  {category}
+                </button>
+              ))}
+            </div>
+            <div className="grid grid-cols-3 gap-4">
+              {blog?.length > 0 &&
+                blog
+                  .filter(
+                    (item) =>
+                      selectedCategory === "View all" ||
+                      item.categories === selectedCategory
+                  )
+                  .map((item) => (
+                    <BlogCard
+                      id={item._id}
+                      author={item.author}
+                      topic={item.topic}
+                      category={item.categories}
+                      introduction={item.introduction}
+                      poster={item.poster}
+                      datePublished={item.datePublished}
+                    />
+                  ))}
+            </div>
+          </div>
+        </section>
+        <section className="bg-primary500 py-10 text-white">
+          <div className="container mx-auto">
+            <div className="flex flex-col gap-5 py-12">
+              <h2 className="font-DmSerif text-[46px]">
+                Unlock Your Health Potential Today
+              </h2>
+              <p className="text-lg">
+                Sign up for full access to period tracking tools and
+                personalized health content.
+              </p>
+              <div className="flex items-center gap-6">
+                <button className="py-4 px-8 text-lg font-medium bg-white text-primary500 rounded-md">
+                  Sign Up
+                </button>
+                <button className="py-4 px-8 text-lg font-medium border border-white text-white rounded-md">
+                  Learn More
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+        <InfoSection />
+        <Newsletter />
+      </main>
+      <Footer />
+    </>
+  );
 }

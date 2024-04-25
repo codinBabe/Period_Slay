@@ -1,6 +1,9 @@
 import express from "express";
 import User from "../db/models/User.js";
 import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
+import dotenv from "dotenv";
+dotenv.config();
 
 const router = express.Router();
 
@@ -8,7 +11,6 @@ router.post("/", async (req, res) => {
   console.log(req.body);
   const { name, email, password, confirmPassword } = req.body;
 
-  // Validate password strength
   const passwordRegex =
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
   if (!passwordRegex.test(password)) {
@@ -17,15 +19,12 @@ router.post("/", async (req, res) => {
       .json({ message: "Password does not meet requirements." });
   }
 
-  // Check if passwords match
   if (password !== confirmPassword) {
     return res.status(400).json({ message: "Passwords do not match." });
   }
 
-  // Hash the password
   const hashedPassword = await bcrypt.hash(password, 10);
 
-  // Create a new user instance and save to the database
   try {
     const newUser = new User({
       name: name,
@@ -33,8 +32,10 @@ router.post("/", async (req, res) => {
       password: hashedPassword,
     });
     await newUser.save();
-
-    res.status(201).json({ message: "User registered successfully." });
+    const token = jwt.sign({ userId: newUser._id }, process.env.JWT_SECRET, {
+      expiresIn: "1h",
+    });
+    res.json({ token });
   } catch (error) {
     res.status(500).json({ message: "Error registering user." });
   }
