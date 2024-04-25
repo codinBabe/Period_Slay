@@ -32,6 +32,11 @@ export default function Header() {
                                 className={location.pathname === '/contact' ? 'active' : ''}
                                 to="/contact">Contact</Link>
                         </li>
+                        <li>
+                            <Link
+                                className={location.pathname === '/faq' ? 'active' : ''}
+                                to="/faq">FAQ</Link>
+                        </li>
                     </ul>
                     <ul className='flex items-center gap-5 font-medium text-base'>
                         <li>

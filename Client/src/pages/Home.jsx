@@ -106,6 +106,12 @@ export default function Home() {
                   >
                     Connect with our Community
                   </Link>
+                  <Link
+                    className="font-DmSerif text-2xl text-primary500"
+                    to={"/faq"}
+                  >
+                   
+                  </Link>
                   <p className="text-base mt-2">
                     Join our supportive community of users where you can share
                     experiences,
