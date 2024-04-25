@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Womanwithafro from "../assets/woman-with-afro.png";
-import PlaceholderImage from "../assets/Placeholder Image.png";
 import WomanExercise from "../assets/woman_exercising.png";
 import PeriodCalender from "../assets/period calendar.png";
 import UterusPic from "../assets/uterus.png";
@@ -15,24 +14,23 @@ import HomeIcon6 from "../assets/home-icon-6.svg";
 import Newsletter from "../components/Newsletter";
 import { Link } from "react-router-dom";
 import MyModal from "../components/Modal";
+import InfoSection from "../components/InfoSection";
 export default function Home() {
   const [modalOpen, setModalOpen] = useState(true);
+  const isAuthenticated = () => {
+    const token = localStorage.getItem("token");
+    return !!token;
+  };
 
   return (
     <>
       <Header />
-      <MyModal isOpen={modalOpen} closeModal={() => setModalOpen(false)}>
-        <p className="font-DmSerif text-[52px]">
-          Stay in the Know: Are You in Your Safe Period?
-        </p>
-        <p className="font-semibold text-white text-xl">
-          Click{" "}
-          <Link className="text-primary200" to="/">
-            here
-          </Link>{" "}
-          to find out
-        </p>
-      </MyModal>
+      <MyModal
+        isOpen={modalOpen}
+        closeModal={() => setModalOpen(false)}
+        isAuthenticated={isAuthenticated}
+      />
+
       <main>
         <section className="hero bg-primary500 text-white">
           <div className="container mx-auto py-28">
@@ -67,61 +65,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section className="my-12">
-          <div className="container mx-auto">
-            <div className="flex items-center justify-between">
-              <div className="flex flex-col gap-4">
-                <div className="link">
-                  <Link
-                    className="font-DmSerif text-2xl text-primary500"
-                    to={"/blog"}
-                  >
-                    Educational Resources Available
-                  </Link>
-                  <p className="text-base mt-2">
-                    Explore our extensive collection of educational blog posts
-                    on topics like puberty,
-                    <br /> reproductive health, and other important issues that
-                    affect women’s health.
-                  </p>
-                </div>
-                <div className="link">
-                  <Link
-                    className="font-DmSerif text-2xl text-primary500"
-                    to={"/tracker"}
-                  >
-                    Track Your Period Easily
-                  </Link>
-                  <p className="text-base mt-2">
-                    Our Website provides a simple and intuitive period tracking
-                    feature that allows
-                    <br /> you to effortlessly monitor your menstrual cycle and
-                    upcoming periods.
-                  </p>
-                </div>
-                <div className="link">
-                  <Link
-                    className="font-DmSerif text-2xl text-primary500"
-                    to={"/tracker"}
-                  >
-                    Connect with our Community
-                  </Link>
-                  <p className="text-base mt-2">
-                    Join our supportive community of users where you can share
-                    experiences,
-                    <br />
-                    ask questions, and receive valuable support and advice from
-                    others going through
-                    <br /> similar experiences.
-                  </p>
-                </div>
-              </div>
-              <div>
-                <img src={PlaceholderImage} alt="cute pad display shot" />
-              </div>
-            </div>
-          </div>
-        </section>
+        <InfoSection />
         <section>
           <div className="container mx-auto">
             <h2 className="font-DmSerif text-5xl text-primary500">
