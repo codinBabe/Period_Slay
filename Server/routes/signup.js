@@ -33,7 +33,7 @@ router.post("/", async (req, res) => {
     });
     await newUser.save();
     const token = jwt.sign({ userId: newUser._id }, process.env.JWT_SECRET, {
-      expiresIn: "1h",
+      expiresIn: "30d",
     });
     res.json({ token });
   } catch (error) {

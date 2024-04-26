@@ -7,6 +7,7 @@ import dbConnect from "./db/connection.js";
 import userRouter from "./routes/user.js";
 import uploadRouter from "./routes/upload.js";
 import blogRouter from "./routes/blog.js";
+
 const PORT = process.env.PORT || 5000;
 const app = express();
 
@@ -23,6 +24,5 @@ app.get("/", (req, res) => {
 });
 
 dbConnect().then(() => {
-  // Start the server after the database connection is established
   app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 });

@@ -1,20 +1,23 @@
 import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
+import CustomButton from "../components/CustomButton";
+import FailIcon from "../assets/fail-icon.png";
 
 export default function Profile() {
   const [userDetails, setUserDetails] = useState([]);
 
   useEffect(() => {
-    if (!localStorage.getItem("token")) {
+    const token = localStorage.getItem("token");
+    if (!token) {
       window.location = "/login";
     } else {
       fetchUserDetails();
     }
   }, []);
 
-  const fetchUserDetails = async () => {
+  async function fetchUserDetails() {
     try {
-      const response = await fetch("http://localhost:5000/users", {
+      const response = await fetch("http://localhost:5000/user", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -31,27 +34,70 @@ export default function Profile() {
     } catch (error) {
       console.error("Error fetching user details:", error);
     }
-  };
+  }
 
   const handleLogout = () => {
     localStorage.removeItem("token");
-    window.location = "/";
   };
+
+  async function handleDeleteAccount() {
+    try {
+      const response = await fetch("http://localhost:5000/user", {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      });
+      if (response.ok) {
+        localStorage.removeItem("token");
+        window.location = "/signup";
+      } else {
+        console.error("Failed to delete user");
+      }
+    } catch (error) {
+      console.error("Error deleting user:", error);
+    }
+  }
+
   return (
     <>
       <Header />
       <main>
         <div className="container mx-auto py-10">
-          <div className="flex items-center gap-10">
+          <div className="flex items-start gap-10">
             <div className="w-[210px] h-[340px]bg-white shadow-lg">
               <div className="flex flex-col items-start gap-10 pl-4 py-4 text-xl">
                 <button>My Profile</button>
                 <button>Notifications</button>
-                <button onClick={handleLogout}>Log out</button>
-                <button>Delete Account</button>
+                <CustomButton
+                  text={"Log out"}
+                  imgSrc={FailIcon}
+                  onClick={handleLogout}
+                  confirmText={"Are you sure you want to log out?"}
+                >
+                  <img src={FailIcon} alt="icon" />
+                  <p className="font-medium">You have been logged out</p>
+                  <p>
+                    Please click below to refresh your browser to log back in
+                  </p>
+                  <button className="bg-primary500 text-white py-4 px-8 text-lg rounded-md">
+                    Refresh and log me back in
+                  </button>
+                </CustomButton>
+                <CustomButton
+                  text={"Delete Account"}
+                  imgSrc={FailIcon}
+                  confirmText={" Are you sure you want to delete your account?"}
+                  onClick={handleDeleteAccount}
+                >
+                  <p className="font-medium">
+                    You have successfully deleted your account
+                  </p>
+                  <p>We’re so sorry to see you go!</p>
+                </CustomButton>
               </div>
             </div>
-
             <div className="grow">
               <h2 className="font-medium text-xl mb-4">My Profile</h2>
               <div className="bg-primary50 rounded-xl px-5 py-3 shadow-xl">
@@ -61,26 +107,20 @@ export default function Profile() {
                     Edit
                   </button>
                 </div>
-                <table className="table-auto">
-                  <tbody>
-                    {userDetails && (
-                      <>
-                        <tr>
-                          <td className="px-4 py-2">First Name</td>
-                          <td className="px-4 py-2">{userDetails.firstName}</td>
-                        </tr>
-                        <tr>
-                          <td className="px-4 py-2">Last Name</td>
-                          <td className="px-4 py-2">{userDetails.lastName}</td>
-                        </tr>
-                        <tr>
-                          <td className="px-4 py-2">Email Address</td>
-                          <td className="px-4 py-2">{userDetails.email}</td>
-                        </tr>
-                      </>
-                    )}
-                  </tbody>
-                </table>
+                {userDetails && (
+                  <div className="flex flex-col justify-center">
+                    <div className="flex items-center gap-48">
+                      <p className="px-4 py-2">First Name</p>
+                      <p className="px-4 py-2">Last Name</p>
+                      <p className="px-4 py-2">Email Address</p>
+                    </div>
+                    <div className="flex items-center gap-48">
+                      <p className="px-4 py-2">{userDetails.firstName}</p>
+                      <p className="px-4 py-2">{userDetails.lastName}</p>
+                      <p className="px-4 py-2">{userDetails.email}</p>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           </div>
