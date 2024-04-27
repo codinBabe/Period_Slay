@@ -24,7 +24,7 @@ export default function Profile() {
 
   async function fetchUserDetails() {
     try {
-      const response = await fetch("http://localhost:5000/user", {
+      const response = await fetch("https://period-slay.onrender.com/user", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
