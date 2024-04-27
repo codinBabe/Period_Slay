@@ -34,9 +34,13 @@ div.create-blog-form form > label {
   @apply block my-4 text-lg;
 }
 div.create-blog-form input,
-textarea {
+div.create-blog-form textarea {
   @apply w-full px-4 py-2 border rounded-md;
 }
+div.create-blog-form div.sections input {
+  @apply mb-5;
+}
+
 div.headingBtn button {
   @apply w-full text-white bg-primary500 rounded-md p-2;
 }

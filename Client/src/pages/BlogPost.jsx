@@ -11,7 +11,7 @@ import LinkedIn from "../assets/LinkedIn.svg";
 export default function BlogPost() {
   const { id } = useParams();
   const [post, setPost] = useState(null);
-
+  console.log(post);
   useEffect(() => {
     fetch(`/blog/${id}`).then((res) => {
       res.json().then((post) => setPost(post));
@@ -22,33 +22,35 @@ export default function BlogPost() {
     <>
       <Header />
       <main>
-        <section>
+        <section className="my-12">
           <div className="container mx-auto">
             {post && (
               <>
                 <div className="hero-section">
-                  <div>
-                    <p>{post.categories}</p>
+                  <div className="text-base flex items-center gap-4 mb-2">
+                    <p className="bg-neutralLightest py-1 px-2">
+                      {post.categories}
+                    </p>
                     <p>5 minute read</p>
                   </div>
                   <div>
-                    <h1 className="text-[52px] font-DmSerif mb-4">
+                    <h1 className="text-[52px] font-DmSerif mb-5 text-primary500">
                       {post.title}
                     </h1>
                     <img src={post.poster} alt={post.title} className="mb-4" />
                   </div>
-                  <div>
-                    <div>
+                  <div className="flex items-center justify-between my-6">
+                    <div className="flex items-center gap-8 text-base">
                       <div>
                         <p className="">Written by</p>
-                        <p className="">{post.author}</p>
+                        <p className="font-medium">{post.author}</p>
                       </div>
                       <div>
                         <p className="">Published on</p>
-                        <p className="">{post.datePublished}</p>
+                        <p className="font-medium">{post.datePublished}</p>
                       </div>
                     </div>
-                    <div>
+                    <div className="flex items-center gap-3">
                       <a href="#" target="_blank" rel="noreferrer">
                         <img src={LinkIcon} alt="icon" />
                       </a>
@@ -64,41 +66,49 @@ export default function BlogPost() {
                     </div>
                   </div>
                 </div>
-                <div className="content-section flex justify-center gap-10">
-                  <div className="left">
+                <div className="content-section flex justify-center my-20">
+                  <div className="left w-[320px]">
                     <h2 className="font-DmSerif text-primary500 text-[32px]">
                       Contents
                     </h2>
                     <h3 className="text-lg">Introduction</h3>
-                    {post.subtitle.map((item, i) => (
+                    {post?.sections?.map((item, i) => (
                       <h3 key={i} className="text-lg">
-                        {item}
+                        {item.subtitle}
                       </h3>
                     ))}
-                    {post.conclusion && <h3>Conclusion</h3>}
+                    {post.conclusion && <h3 className="text-lg">Conclusion</h3>}
                   </div>
-                  <div className="right">
-                    <h2 className="font-DmSerif text-primary500 text-[32px]">
+                  <div className="right w-[896px]">
+                    <h2 className="font-DmSerif text-primary500 text-[32px] mb-10">
                       {post.topic}
                     </h2>
                     <div>
-                      <h3 className="font-medium text-[26px]">Introduction</h3>
+                      <h3 className="font-medium text-[26px] mt-10 mb-5">
+                        Introduction
+                      </h3>
                       <p>{post.introduction}</p>
                     </div>
-                    <img src={post.contentImage} alt="content-poster" />
+                    <img
+                      src={post.contentImage}
+                      alt="content-poster"
+                      className="my-5"
+                    />
                     <div>
-                      {post.subtitle.map((item, i) => (
+                      {post?.sections?.map((section, i) => (
                         <div key={i}>
-                          <h3 className="font-medium text-[26px]">{item}</h3>
-                          {post.content.map((item, i) => (
-                            <p key={i}>{item}</p>
-                          ))}
+                          <h3 className="font-medium text-[26px] mb-5">
+                            {section.subtitle}
+                          </h3>
+                          <p className="my-5">{section.content}</p>
                         </div>
                       ))}
                     </div>
                     {post.conclusion && (
                       <div>
-                        <h3 className="font-medium text-[26px]">Conclusion</h3>
+                        <h3 className="font-medium text-[26px] my-5">
+                          Conclusion
+                        </h3>
                         <p>{post.conclusion}</p>
                       </div>
                     )}

@@ -10,17 +10,25 @@ export default function BlogThumb({
 }) {
   return (
     <div className="flex items-center justify-between">
-      <img src={poster} alt="poster" />
-      <div className="flex flex-col items-center gap-8">
+      <div className="flex flex-col gap-5 w-[568px] h-[213px]">
         <div className="flex items-center gap-5">
-          <h4>{category}</h4>
-          <p>{time}</p>
+          <button className="text-white text-sm bg-primary500 py-1 px-2">
+            {category}
+          </button>
+          <p className="text-primary500 text-sm">{time}</p>
         </div>
         <div>
-          <h3>{topic}</h3>
+          <h2 className="text-[32px] font-DmSerif text-primary500 mb-2">
+            {topic}
+          </h2>
           <p>{introduction}</p>
         </div>
-        <Link to={link}>Read More</Link>
+        <Link className="text-neutral800 text-base" to={link}>
+          Read More &gt;
+        </Link>
+      </div>
+      <div className="w-[656px] h-[500]">
+        <img src={poster} alt="poster" />
       </div>
     </div>
   );

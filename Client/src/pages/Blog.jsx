@@ -4,6 +4,10 @@ import Footer from "../components/Footer";
 import BlogCard from "../components/BlogCard";
 import Newsletter from "../components/Newsletter";
 import InfoSection from "../components/InfoSection";
+import BlogThumb from "../components/BlogThumb";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 export default function Blog() {
   const [blog, setBlog] = useState([]);
@@ -14,11 +18,15 @@ export default function Blog() {
     });
   }, []);
 
-  const categories = [
-    "View all",
-    ...new Set(blog.map((item) => item.categories)),
-  ];
+  const categories = blog.reduce((acc, post) => {
+    if (!acc[post.categories]) {
+      acc[post.categories] = [];
+    }
+    acc[post.categories].push(post);
+    return acc;
+  }, {});
 
+  const categoryNames = ["View all", ...Object.keys(categories)];
   return (
     <>
       <Header />
@@ -41,14 +49,32 @@ export default function Blog() {
         </section>
         <section>
           <div className="container mx-auto py-28">
-            <div></div>
+            <Slider autoplay={true} autoplaySpeed={5000} speed={1000}>
+              {blog.map((item, i) => (
+                <div key={i}>
+                  <BlogThumb
+                    poster={item.poster}
+                    time={"5 min read"}
+                    category={item.categories}
+                    topic={item.topic}
+                    introduction={item.introduction.substring(
+                      0,
+                      item.introduction.indexOf(".") + 1
+                    )}
+                    link={"/blog/" + item._id}
+                  />
+                </div>
+              ))}
+            </Slider>
           </div>
         </section>
+
         <section>
           <div className="container mx-auto my-8">
             <div className="mb-2">
-              {categories.map((category) => (
+              {categoryNames.map((category, i) => (
                 <button
+                  key={i}
                   onClick={() => setSelectedCategory(category)}
                   className={`mr-4 text-base ${
                     selectedCategory === category
@@ -60,25 +86,22 @@ export default function Blog() {
                 </button>
               ))}
             </div>
-            <div className="grid grid-cols-3 gap-4">
-              {blog?.length > 0 &&
-                blog
-                  .filter(
-                    (item) =>
-                      selectedCategory === "View all" ||
-                      item.categories === selectedCategory
-                  )
-                  .map((item) => (
-                    <BlogCard
-                      id={item._id}
-                      author={item.author}
-                      topic={item.topic}
-                      category={item.categories}
-                      introduction={item.introduction}
-                      poster={item.poster}
-                      datePublished={item.datePublished}
-                    />
-                  ))}
+            <div className="grid grid-cols-3 gap-6">
+              {(selectedCategory === "View all"
+                ? blog
+                : categories[selectedCategory]
+              ).map((item, i) => (
+                <BlogCard
+                  key={i}
+                  id={item._id}
+                  author={item.author}
+                  topic={item.topic}
+                  category={item.categories}
+                  introduction={item.introduction}
+                  poster={item.poster}
+                  datePublished={item.datePublished}
+                />
+              ))}
             </div>
           </div>
         </section>

@@ -26,12 +26,12 @@ const blogSchema = new mongoose.Schema(
     conclusion: {
       type: String,
     },
-    content: {
-      type: [String],
-    },
-    subtitle: {
-      type: [String],
-    },
+    sections: [
+      {
+        subtitle: { type: String },
+        content: { type: String },
+      },
+    ],
     categories: {
       type: [String],
     },

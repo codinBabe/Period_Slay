@@ -9,29 +9,38 @@ export default function CreateBlogForm({ onSubmit }) {
   const [topic, setTopic] = useState("");
   const [datePublished, setDatePublished] = useState("");
   const [introduction, setIntroduction] = useState("");
-  const [content, setContent] = useState([""]);
-  const [subtitle, setSubtitle] = useState([""]);
+  const [sections, setSections] = useState([{ subtitle: "", content: "" }]);
   const [conclusion, setConclusion] = useState("");
   const [categories, setCategories] = useState("");
+  const [isSubmitted, setIsSubmitted] = useState("false");
 
   const handleAddSubheading = () => {
-    setSubtitle([...subtitle, ""]);
-    setContent([...content, ""]);
+    setSections([...sections, { subtitle: "", content: "" }]);
   };
 
   const handleRemoveSubheading = () => {
-    if (subtitle.length > 1) {
-      setSubtitle(subtitle.slice(0, -1));
-      setContent(content.slice(0, -1));
+    if (sections.length > 1) {
+      setSections(sections.slice(0, -1));
     }
+  };
+
+  const handleSubheadingChange = (index, value) => {
+    const updatedSections = [...sections];
+    updatedSections[index].subtitle = value;
+    setSections(updatedSections);
+  };
+
+  const handleContentChange = (index, value) => {
+    const updatedSections = [...sections];
+    updatedSections[index].content = value;
+    setSections(updatedSections);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = {
       title,
-      content,
-      subtitle,
+      sections,
       author,
       datePublished,
       topic,
@@ -42,6 +51,7 @@ export default function CreateBlogForm({ onSubmit }) {
       categories,
     };
     onSubmit(e, formData);
+    setIsSubmitted(true);
   };
 
   function handleCategoryChange(e) {
@@ -51,18 +61,14 @@ export default function CreateBlogForm({ onSubmit }) {
     );
     setCategories(selectedCategories);
   }
-  const handleSubheadingChange = (index, value) => {
-    const updatedSubtitle = [...subtitle];
-    updatedSubtitle[index] = value;
-    setSubtitle(updatedSubtitle);
-  };
-  const handleContentChange = (index, value) => {
-    const updatedContent = [...content];
-    updatedContent[index] = value;
-    setContent(updatedContent);
-  };
 
-  const availableCategories = ["Health", "Puberty", "Fitness", "Wellness"];
+  const availableCategories = [
+    "Health",
+    "Puberty",
+    "Fitness",
+    "Wellness",
+    "Nutrition",
+  ];
   return (
     <div className="max-w-md mx-auto my-10 bg-white shadow-lg rounded-lg overflow-hidden">
       <div className="create-blog-form p-6">
@@ -102,7 +108,7 @@ export default function CreateBlogForm({ onSubmit }) {
           </label>
           <label>
             Introduction:
-            <input
+            <textarea
               type="text"
               value={introduction}
               onChange={(e) => setIntroduction(e.target.value)}
@@ -110,34 +116,30 @@ export default function CreateBlogForm({ onSubmit }) {
           </label>
           <UploadImage text={"Poster:"} link={poster} setLink={setPoster} />
           <label>
-            Subtitle:
-            {subtitle.map((subtitle, index) => (
-              <input
-                className="mt-5"
-                key={index}
-                type="text"
-                value={subtitle}
-                onChange={(e) => handleSubheadingChange(index, e.target.value)}
-              />
+            Subtitle and Content:
+            {sections.map((section, index) => (
+              <div className="sections" key={index}>
+                <input
+                  type="text"
+                  value={section.subtitle}
+                  onChange={(e) =>
+                    handleSubheadingChange(index, e.target.value)
+                  }
+                />
+                <textarea
+                  value={section.content}
+                  onChange={(e) => handleContentChange(index, e.target.value)}
+                />
+              </div>
             ))}
             <div className="headingBtn flex items-center gap-5 my-5">
               <button type="button" onClick={handleAddSubheading}>
-                Add Subtitle
+                Add Section
               </button>
               <button type="button" onClick={handleRemoveSubheading}>
-                Remove Subtitle
+                Remove Section
               </button>
             </div>
-          </label>
-          <label>
-            Content:
-            {content.map((content, index) => (
-              <textarea
-                key={index}
-                value={content}
-                onChange={(e) => handleContentChange(index, e.target.value)}
-              />
-            ))}
           </label>
           <UploadImage
             text={"Content Image"}

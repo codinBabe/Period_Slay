@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import CustomButton from "../components/CustomButton";
 import FailIcon from "../assets/fail-icon.png";
+import { Link } from "react-router-dom";
 
 export default function Profile() {
   const [userDetails, setUserDetails] = useState([]);
-
+  const [blog, setBlog] = useState([]);
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (!token) {
@@ -13,6 +14,12 @@ export default function Profile() {
     } else {
       fetchUserDetails();
     }
+  }, []);
+
+  useEffect(() => {
+    fetch("/blog").then((res) => {
+      res.json().then((blog) => setBlog(blog));
+    });
   }, []);
 
   async function fetchUserDetails() {
@@ -81,9 +88,12 @@ export default function Profile() {
                   <p>
                     Please click below to refresh your browser to log back in
                   </p>
-                  <button className="bg-primary500 text-white py-4 px-8 text-lg rounded-md">
+                  <Link
+                    to={"/login"}
+                    className="bg-primary500 text-white py-4 px-8 text-lg rounded-md"
+                  >
                     Refresh and log me back in
-                  </button>
+                  </Link>
                 </CustomButton>
                 <CustomButton
                   text={"Delete Account"}
@@ -99,28 +109,76 @@ export default function Profile() {
               </div>
             </div>
             <div className="grow">
-              <h2 className="font-medium text-xl mb-4">My Profile</h2>
-              <div className="bg-primary50 rounded-xl px-5 py-3 shadow-xl">
-                <div className="flex items-center justify-between">
-                  <p className="font-medium text-xl">Personal Information</p>
-                  <button className="border border-primary500 text-primary500 text-xl p-[10px]">
-                    Edit
-                  </button>
-                </div>
-                {userDetails && (
-                  <div className="flex flex-col justify-center">
-                    <div className="flex items-center gap-48">
-                      <p className="px-4 py-2">First Name</p>
-                      <p className="px-4 py-2">Last Name</p>
-                      <p className="px-4 py-2">Email Address</p>
+              <div className="flex flex-col gap-12">
+                <div>
+                  <h2 className="font-medium text-xl mb-4">My Profile</h2>
+                  <div className="bg-primary50 rounded-xl px-5 py-3 shadow-xl w-[915px] h-[160px]">
+                    <div className="flex items-center justify-between">
+                      <p className="font-medium text-xl">
+                        Personal Information
+                      </p>
+                      <button className="border border-primary500 text-primary500 text-xl p-[10px]">
+                        Edit
+                      </button>
                     </div>
-                    <div className="flex items-center gap-48">
-                      <p className="px-4 py-2">{userDetails.firstName}</p>
-                      <p className="px-4 py-2">{userDetails.lastName}</p>
-                      <p className="px-4 py-2">{userDetails.email}</p>
+                    {userDetails && (
+                      <div className="flex flex-col justify-center">
+                        <div className="flex items-center gap-40">
+                          <p className="px-4 py-2">First Name</p>
+                          <p className="px-4 py-2">Last Name</p>
+                          <p className="px-4 py-2">Email Address</p>
+                        </div>
+                        <div className="flex items-center gap-48">
+                          <p className="px-4 py-2">{userDetails.firstName}</p>
+                          <p className="px-4 py-2">{userDetails.lastName}</p>
+                          <p className="px-4 py-2">{userDetails.email}</p>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+                <div>
+                  <div className="bg-primary50 rounded-xl px-5 py-3 shadow-xl w-[915px] h-[160px]">
+                    <div className="flex items-center justify-between">
+                      <p className="font-medium text-xl">My Period</p>
+                      <button className="border border-primary500 text-primary500 text-xl p-[10px]">
+                        Edit
+                      </button>
+                    </div>
+                    {userDetails && (
+                      <div className="flex flex-col justify-center">
+                        <div className="flex items-center gap-40">
+                          <p className="px-4 py-2">First Name</p>
+                          <p className="px-4 py-2">Last Name</p>
+                          <p className="px-4 py-2">Email Address</p>
+                        </div>
+                        <div className="flex items-center gap-48">
+                          <p className="px-4 py-2">{userDetails.firstName}</p>
+                          <p className="px-4 py-2">{userDetails.lastName}</p>
+                          <p className="px-4 py-2">{userDetails.email}</p>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+                <div>
+                  <div>
+                    <h2 className="font-medium text-xl mb-4">
+                      Recommended Articles
+                    </h2>
+                    <div className="grid grid-cols-4 w-[915px] h-[160px]">
+                      {blog.slice(0, 4).map((item, i) => (
+                        <Link
+                          to={"/blog/" + item._id}
+                          key={i}
+                          className="flex items-center justify-center bg-primary50 rounded-xl px-5 py-3 shadow-xl w-[203px] h-[179px]"
+                        >
+                          <h2 className="font-medium text-xl">{item.title}</h2>
+                        </Link>
+                      ))}
                     </div>
                   </div>
-                )}
+                </div>
               </div>
             </div>
           </div>
