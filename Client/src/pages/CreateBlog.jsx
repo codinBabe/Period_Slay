@@ -9,7 +9,7 @@ export default function CreateBlog() {
   async function handleNewBlog(e, blogData) {
     e.preventDefault();
     try {
-      const response = await fetch("/blog", {
+      const response = await fetch("https://period-slay.onrender.com/blog", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

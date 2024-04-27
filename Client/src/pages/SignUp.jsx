@@ -45,7 +45,7 @@ export default function SignUp() {
   async function handleSignUp(e) {
     e.preventDefault();
     try {
-      const response = await fetch("/signup", {
+      const response = await fetch("https://period-slay.onrender.com/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
