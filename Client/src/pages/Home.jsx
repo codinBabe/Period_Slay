@@ -88,9 +88,10 @@ export default function Home() {
               {blog &&
                 blog
                   .slice(0, 3)
-                  .map((item) => (
+                  .map((item, i) => (
                     <BlogCard
-                      key={item._id}
+                      key={item.i}
+                      id={item._id}
                       poster={item.poster}
                       author={item.author}
                       category={item.categories}
