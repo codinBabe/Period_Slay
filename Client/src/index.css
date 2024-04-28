@@ -15,6 +15,15 @@ label {
 form.form > div > input {
   @apply w-full rounded-xl border border-primary500 p-3 outline-none text-2xl;
 }
+input[type="text"]:disabled,
+input[type="password"]:disabled,
+input[type="email"]:disabled,
+input[type="tel"]:disabled {
+  @apply bg-gray-200 border-gray-300 text-gray-600 cursor-not-allowed;
+}
+button[type="submit"]:disabled {
+  @apply cursor-not-allowed bg-primary200 text-gray-300;
+}
 div.link:hover {
   @apply border-l-4 border-primary500 pl-3;
 }

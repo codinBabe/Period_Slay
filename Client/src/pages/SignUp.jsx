@@ -7,12 +7,18 @@ import SuccessIcon from "../assets/success-icon.png";
 import FailIcon from "../assets/fail-icon.png";
 import ValidationFeedback from "../components/Validation";
 import Notification from "../components/Notify";
+import EyeIcon from "../assets/eyeIcon.svg";
+import EyeSlashIcon from "../assets/eyeSlash.svg";
 
 export default function SignUp() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [creatingUser, setCreatingUser] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [isFail, setIsFail] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const [passwordValidations, setPasswordValidations] = useState({
     minLength: false,
     lowercase: false,
@@ -20,10 +26,7 @@ export default function SignUp() {
     number: false,
     specialChar: false,
   });
-  const [isSuccess, setIsSuccess] = useState(false);
-  const [isFail, setIsFail] = useState(false);
 
-  // Validate password function
   const validatePassword = (password) => {
     const validations = {
       minLength: password.length >= 8,
@@ -44,8 +47,9 @@ export default function SignUp() {
 
   async function handleSignUp(e) {
     e.preventDefault();
+    setCreatingUser(true);
     try {
-      const response = await fetch("https://period-slay.onrender.com/signup", {
+      const response = await fetch("/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -57,6 +61,7 @@ export default function SignUp() {
       } else {
         setIsFail(true);
       }
+      setCreatingUser(false);
     } catch (error) {
       setIsFail(true);
       console.error("signup error:", error);
@@ -79,6 +84,7 @@ export default function SignUp() {
                     type="text"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
+                    disabled={creatingUser}
                   />
                 </div>
                 <div className="mb-6">
@@ -87,15 +93,29 @@ export default function SignUp() {
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
+                    disabled={creatingUser}
                   />
                 </div>
-                <div className="mb-4">
+                <div className="mb-4 relative">
                   <label htmlFor="password">Password</label>
                   <input
-                    type="password"
+                    type={showPassword ? "text" : "password"}
                     value={password}
                     onChange={handlePasswordChange}
+                    disabled={creatingUser}
+                    className="w-full border rounded-md px-3 py-2"
                   />
+                  <button
+                    type="button"
+                    className="absolute top-10 right-0 px-3 py-2"
+                    onClick={() => setShowPassword(!showPassword)}
+                  >
+                    {showPassword ? (
+                      <img src={EyeSlashIcon} alt="Hide Password" />
+                    ) : (
+                      <img src={EyeIcon} alt="Show Password" />
+                    )}
+                  </button>
                   <div className="validation text-xl text-neutral800 mt-2">
                     <p>Password must:</p>
                     <ul>
@@ -132,17 +152,31 @@ export default function SignUp() {
                     </ul>
                   </div>
                 </div>
-                <div className="my-4">
+                <div className="my-4 relative">
                   <label htmlFor="password">Confirm Password</label>
                   <input
-                    type="password"
+                    type={showPassword ? "text" : "password"}
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
+                    disabled={creatingUser}
+                    className="w-full border rounded-md px-3 py-2"
                   />
+                  <button
+                    type="button"
+                    className="absolute top-10 right-0 px-3 py-2"
+                    onClick={() => setShowPassword(!showPassword)}
+                  >
+                    {showPassword ? (
+                      <img src={EyeSlashIcon} alt="Hide Password" />
+                    ) : (
+                      <img src={EyeIcon} alt="Show Password" />
+                    )}
+                  </button>
                 </div>
                 <button
                   className="rounded-md px-8 py-4 w-full text-white text-lg font-medium bg-primary500 my-5"
                   type="submit"
+                  disabled={creatingUser}
                 >
                   Sign Up
                 </button>
@@ -157,13 +191,13 @@ export default function SignUp() {
               </div>
             </div>
           </div>
-          <div className="absolute top-[13%] left-[28%] transform -translate-x-1/2">
+          <div className="absolute top-[12%] left-[27%] transform -translate-x-1/2">
             <Slogan />
             <div className="relative">
               <img
                 src={UterusFull}
                 alt="placeholder"
-                className="mt-[-3px] ml-[-66px] h-[452px] w-[400px]"
+                className="mt-[-80px] ml-[-62px] h-[452px] w-[400px]"
               />
             </div>
           </div>

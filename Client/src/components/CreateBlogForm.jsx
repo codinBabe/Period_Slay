@@ -12,7 +12,6 @@ export default function CreateBlogForm({ onSubmit }) {
   const [sections, setSections] = useState([{ subtitle: "", content: "" }]);
   const [conclusion, setConclusion] = useState("");
   const [categories, setCategories] = useState("");
-  const [isSubmitted, setIsSubmitted] = useState("false");
 
   const handleAddSubheading = () => {
     setSections([...sections, { subtitle: "", content: "" }]);
@@ -51,7 +50,6 @@ export default function CreateBlogForm({ onSubmit }) {
       categories,
     };
     onSubmit(e, formData);
-    setIsSubmitted(true);
   };
 
   function handleCategoryChange(e) {
@@ -109,6 +107,9 @@ export default function CreateBlogForm({ onSubmit }) {
           <label>
             Introduction:
             <textarea
+              style={{
+                whiteSpace: "pre-line",
+              }}
               type="text"
               value={introduction}
               onChange={(e) => setIntroduction(e.target.value)}
@@ -127,6 +128,9 @@ export default function CreateBlogForm({ onSubmit }) {
                   }
                 />
                 <textarea
+                  style={{
+                    whiteSpace: "pre-line",
+                  }}
                   value={section.content}
                   onChange={(e) => handleContentChange(index, e.target.value)}
                 />
@@ -148,7 +152,10 @@ export default function CreateBlogForm({ onSubmit }) {
           />
           <label>
             Conclusion:
-            <input
+            <textarea
+              style={{
+                whiteSpace: "pre-line",
+              }}
               type="text"
               value={conclusion}
               onChange={(e) => setConclusion(e.target.value)}

@@ -24,7 +24,7 @@ export default function Profile() {
 
   async function fetchUserDetails() {
     try {
-      const response = await fetch("https://period-slay.onrender.com/user", {
+      const response = await fetch("/user", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -49,7 +49,7 @@ export default function Profile() {
 
   async function handleDeleteAccount() {
     try {
-      const response = await fetch("https://period-slay.onrender.com/user", {
+      const response = await fetch("/user", {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",

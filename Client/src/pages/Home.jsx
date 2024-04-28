@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Womanwithafro from "../assets/woman-with-afro.png";
@@ -15,8 +15,18 @@ import Newsletter from "../components/Newsletter";
 import { Link } from "react-router-dom";
 import MyModal from "../components/Modal";
 import InfoSection from "../components/InfoSection";
+import BlogCard from "../components/BlogCard";
+import InfoCard from "../components/InfoCard";
 export default function Home() {
   const [modalOpen, setModalOpen] = useState(true);
+  const [blog, setBlog] = useState([]);
+
+  useEffect(() => {
+    fetch("/blog").then((res) => {
+      res.json().then((blog) => setBlog(blog));
+    });
+  }, []);
+
   const isAuthenticated = () => {
     const token = localStorage.getItem("token");
     return !!token;
@@ -68,95 +78,27 @@ export default function Home() {
         <InfoSection />
         <section>
           <div className="container mx-auto">
-            <h2 className="font-DmSerif text-5xl text-primary500">
+            <h2 className="font-DmSerif text-5xl text-primary500 mb-5">
               Stay Informed, Stay Healthy
             </h2>
-            <p className="text-3xl">
+            <p className="text-3xl mb-5">
               Discover informative and engaging blog posts on various health
               topics.
             </p>
             <div className="grid grid-cols-3 gap-4">
-              <div className="flex flex-col gap-2 ">
-                <div>
-                  <img src={WomanExercise} alt="placeholder" />
-                </div>
-                <p className="font-semibold text-sm">Health</p>
-                <div>
-                  <h3 className="font-DmSerif text-2xl mb-3">
-                    The Role of Exercise in Menstrual Health: Benefits and Best
-                    Practices
-                  </h3>
-                  <p className="text-base">
-                    Learn how to prioritize self care during your menstrual
-                    <br /> cycle for better well-being
-                  </p>
-                </div>
-                <div className="flex item-center gap-4">
-                  <div className="bg-neutral200 w-12 h-12 rounded-full"></div>
-                  <div>
-                    <p className="font-medium text-xl">Jane Doe</p>
-                    <time className="flex items-center gap-2 text-neutral700 text-sm">
-                      <span>11 Jan 2022</span>
-                      <div className="bg-neutral700 w-2 h-2"></div>
-                      <span> 5mins read</span>
-                    </time>
-                  </div>
-                </div>
-              </div>
-              <div className="flex flex-col gap-2 ">
-                <div>
-                  <img src={WomanExercise} alt="placeholder" />
-                </div>
-                <p className="font-semibold text-sm">Health</p>
-                <div>
-                  <h3 className="font-DmSerif text-2xl mb-3">
-                    The Role of Exercise in Menstrual Health: Benefits and Best
-                    Practices
-                  </h3>
-                  <p className="text-base">
-                    Learn how to prioritize self care during your menstrual
-                    <br /> cycle for better well-being
-                  </p>
-                </div>
-                <div className="flex item-center gap-4">
-                  <div className="bg-neutral200 w-12 h-12 rounded-full"></div>
-                  <div>
-                    <p className="font-medium text-xl">Jane Doe</p>
-                    <time className="flex items-center gap-2 text-neutral700 text-sm">
-                      <span>11 Jan 2022</span>
-                      <div className="bg-neutral700 w-2 h-2"></div>
-                      <span> 5mins read</span>
-                    </time>
-                  </div>
-                </div>
-              </div>
-              <div className="flex flex-col gap-2 ">
-                <div>
-                  <img src={WomanExercise} alt="placeholder" />
-                </div>
-                <p className="font-semibold text-sm">Health</p>
-                <div>
-                  <h3 className="font-DmSerif text-2xl mb-3">
-                    The Role of Exercise in Menstrual Health: Benefits and Best
-                    Practices
-                  </h3>
-                  <p className="text-base">
-                    Learn how to prioritize self care during your menstrual
-                    <br /> cycle for better well-being
-                  </p>
-                </div>
-                <div className="flex item-center gap-4">
-                  <div className="bg-neutral200 w-12 h-12 rounded-full"></div>
-                  <div>
-                    <p className="font-medium text-xl">Jane Doe</p>
-                    <time className="flex items-center gap-2 text-neutral700 text-sm">
-                      <span>11 Jan 2022</span>
-                      <div className="bg-neutral700 w-2 h-2"></div>
-                      <span> 5mins read</span>
-                    </time>
-                  </div>
-                </div>
-              </div>
+              {blog &&
+                blog
+                  .slice(0, 3)
+                  .map((item) => (
+                    <BlogCard
+                      id={item._id}
+                      poster={item.poster}
+                      author={item.author}
+                      category={item.categories}
+                      introduction={item.introduction}
+                      datePublished={item.datePublished}
+                    />
+                  ))}
             </div>
             <Link
               to={"/blog"}
@@ -201,95 +143,46 @@ export default function Home() {
             </div>
             <div className="grid grid-cols-3 gap-5 my-10">
               <div className="left">
-                <div className="flex gap-6 mb-6">
-                  <img className="self-start" src={HomeIcon1} alt="icon" />
-                  <div>
-                    <h3 className="font-DmSerif text-primary500 text-2xl mb-4">
-                      Health Insights
-                    </h3>
-                    <p className="text-base">
-                      Receive personalized health insights based on your cycle
-                      data and symptoms. Our algorithm analyzes your information
-                      to provide tailored recommendations for optimizing your
-                      menstrual health and well-being.
-                    </p>
-                  </div>
-                </div>
-                <div className="flex gap-6 mb-6">
-                  <img className="self-start" src={HomeIcon} alt="icon" />
-                  <div>
-                    <h3 className="font-DmSerif text-primary500 text-2xl mb-4">
-                      Customizable Reminders
-                    </h3>
-                    <p className="text-base">
-                      Discover Stay on top of your menstrual health with
-                      customizable reminders for upcoming periods, ovulation,
-                      and other cycle-related events. Never miss an important
-                      milestone again!the changes your body goes through during
-                      puberty and how to navigate them.
-                    </p>
-                  </div>
-                </div>
-                <div className="flex gap-6">
-                  <img className="self-start" src={HomeIcon2} alt="icon" />
-                  <div>
-                    <h3 className="font-DmSerif text-primary500 text-2xl mb-4">
-                      Intuitive Period Tracking
-                    </h3>
-                    <p className="text-base">
-                      Easily track your menstrual cycle with our user-friendly
-                      interface. Input your period start and end dates, track
-                      symptoms, and receive personalized insights into your
-                      cycle patterns.
-                    </p>
-                  </div>
-                </div>
+                <InfoCard image={HomeIcon1} title={"Health Insights"}>
+                  Receive personalized health insights based on your cycle data
+                  and symptoms. Our algorithm analyzes your information to
+                  provide tailored recommendations for optimizing your menstrual
+                  health and well-being.
+                </InfoCard>
+                <InfoCard image={HomeIcon} title={"Customizable Reminders"}>
+                  Discover Stay on top of your menstrual health with
+                  customizable reminders for upcoming periods, ovulation, and
+                  other cycle-related events. Never miss an important milestone
+                  again!the changes your body goes through during puberty and
+                  how to navigate them.
+                </InfoCard>
+                <InfoCard image={HomeIcon2} title={"Intuitive Period Tracking"}>
+                  Easily track your menstrual cycle with our user-friendly
+                  interface. Input your period start and end dates, track
+                  symptoms, and receive personalized insights into your cycle
+                  patterns.
+                </InfoCard>
               </div>
               <div className="center">
                 <img src={UterusPic} alt="placeholder" />
               </div>
               <div className="right">
-                <div className="flex gap-6 mb-6">
-                  <img className="self-start" src={HomeIcon6} alt="icon" />
-                  <div>
-                    <h3 className="font-DmSerif text-primary500 text-2xl mb-4">
-                      Cycle History
-                    </h3>
-                    <p className="text-base">
-                      Access your complete cycle history to monitor trends and
-                      track changes over time. Our comprehensive cycle history
-                      feature provides a holistic view of your menstrual health
-                      journey.
-                    </p>
-                  </div>
-                </div>
-                <div className="flex gap-6 mb-6">
-                  <img className="self-start" src={HomeIcon5} alt="icon" />
-                  <div>
-                    <h3 className="font-DmSerif text-primary500 text-2xl mb-4">
-                      Educational Blog
-                    </h3>
-                    <p className="text-base">
-                      Explore our extensive library of articles covering
-                      puberty, menstrual health, sexual wellness, contraception,
-                      and more. Our informative content is curated by experts
-                      and tailored to address common questions and concerns.
-                    </p>
-                  </div>
-                </div>
-                <div className="flex gap-6">
-                  <img className="self-start" src={HomeIcon4} alt="icon" />
-                  <div>
-                    <h3 className="font-DmSerif text-primary500 text-2xl mb-4">
-                      Privacy and Security
-                    </h3>
-                    <p className="text-base">
-                      Rest assured that your data is safe and secure with Period
-                      Slayer. We prioritize user privacy and adhere to strict
-                      security protocols to protect your sensitive information.
-                    </p>
-                  </div>
-                </div>
+                <InfoCard image={HomeIcon6} title={"Cycle History"}>
+                  Access your complete cycle history to monitor trends and track
+                  changes over time. Our comprehensive cycle history feature
+                  provides a holistic view of your menstrual health journey.
+                </InfoCard>
+                <InfoCard image={HomeIcon5} title={"Educational Blog"}>
+                  Explore our extensive library of articles covering puberty,
+                  menstrual health, sexual wellness, contraception, and more.
+                  Our informative content is curated by experts and tailored to
+                  address common questions and concerns.
+                </InfoCard>
+                <InfoCard image={HomeIcon4} title={"Privacy and Security"}>
+                  Rest assured that your data is safe and secure with Period
+                  Slayer. We prioritize user privacy and adhere to strict
+                  security protocols to protect your sensitive information.
+                </InfoCard>
               </div>
             </div>
           </div>

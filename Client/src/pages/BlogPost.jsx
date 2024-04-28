@@ -13,7 +13,7 @@ export default function BlogPost() {
   const [post, setPost] = useState(null);
   console.log(post);
   useEffect(() => {
-    fetch(`https://period-slay.onrender.com/blog/${id}`).then((res) => {
+    fetch(`/blog/${id}`).then((res) => {
       res.json().then((post) => setPost(post));
     });
   }, [id]);
@@ -100,7 +100,13 @@ export default function BlogPost() {
                           <h3 className="font-medium text-[26px] mb-5">
                             {section.subtitle}
                           </h3>
-                          <p className="my-5">{section.content}</p>
+                          <div className="my-5">
+                            {section.content.split("\n").map((item, index) => (
+                              <p key={index} className="my-2">
+                                {item.trim()}
+                              </p>
+                            ))}
+                          </div>
                         </div>
                       ))}
                     </div>

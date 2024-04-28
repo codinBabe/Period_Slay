@@ -6,15 +6,20 @@ import UterusFull from "../assets/UterusFull.png";
 import Google from "../assets/google-login.svg";
 import Facebook from "../assets/facebook-login.svg";
 import Apple from "../assets/apple-login.svg";
+import EyeIcon from "../assets/eyeIcon.svg";
+import EyeSlashIcon from "../assets/eyeSlash.svg";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loginInProgress, setLoginInProgress] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   async function handleLogin(e) {
     e.preventDefault();
+    setLoginInProgress(true);
     try {
-      const response = await fetch("https://period-slay.onrender.com/login", {
+      const response = await fetch("/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -23,11 +28,10 @@ export default function Login() {
       });
       if (response.ok) {
         const data = await response.json();
-        // Store the JWT token in local storage or session storage
         localStorage.setItem("token", data.token);
-        // Redirect to the home page
         window.location = "/";
       }
+      setLoginInProgress(false);
     } catch (error) {
       console.error("Login error:", error);
     }
@@ -47,15 +51,29 @@ export default function Login() {
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
+                    disabled={loginInProgress}
                   />
                 </div>
-                <div className="mb-4">
+                <div className="mb-4 relative">
                   <label htmlFor="password">Password</label>
                   <input
-                    type="password"
+                    type={showPassword ? "text" : "password"}
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
+                    disabled={loginInProgress}
+                    className="w-full border rounded-md px-3 py-2"
                   />
+                  <button
+                    type="button"
+                    className="absolute top-10 right-0 px-3 py-2"
+                    onClick={() => setShowPassword(!showPassword)}
+                  >
+                    {showPassword ? (
+                      <img src={EyeSlashIcon} alt="Hide Password" />
+                    ) : (
+                      <img src={EyeIcon} alt="Show Password" />
+                    )}
+                  </button>
                 </div>
                 <Link to="/forget" className="block text-xl mb-6 text-right">
                   Forgot password?
@@ -63,6 +81,7 @@ export default function Login() {
                 <button
                   className="rounded-md px-8 py-4 w-full text-white text-lg font-medium bg-primary500 mb-6"
                   type="submit"
+                  disabled={loginInProgress}
                 >
                   Log In
                 </button>
@@ -89,13 +108,13 @@ export default function Login() {
               </div>
             </div>
           </div>
-          <div className="absolute top-[14%] left-[28%] transform -translate-x-1/2">
+          <div className="absolute top-[13%] left-[27%] transform -translate-x-1/2">
             <Slogan />
             <div className="relative">
               <img
                 src={UterusFull}
                 alt="placeholder"
-                className="mt-[-5px] ml-[-48px] h-[300px] w-[300px]"
+                className="mt-[-85px] ml-[-58px] h-[250px] w-[350px]"
               />
             </div>
           </div>

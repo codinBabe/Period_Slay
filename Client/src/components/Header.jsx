@@ -8,7 +8,6 @@ export default function Header() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
-    // Check if the user is authenticated (e.g., by checking the presence of the authentication token)
     const token = localStorage.getItem("token");
     setIsAuthenticated(!!token);
   }, []);
@@ -23,7 +22,7 @@ export default function Header() {
           <ul className="flex items-center gap-4 font-medium text-base">
             <li>
               <Link
-                className={location.pathname === "/blog" ? "active" : ""}
+                className={location.pathname.includes("/blog") ? "active" : ""}
                 to="/blog"
               >
                 Health Blog
