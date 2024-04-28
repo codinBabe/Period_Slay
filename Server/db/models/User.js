@@ -15,6 +15,10 @@ const userSchema = new mongoose.Schema(
       required: [true, "Please provide a password!"],
       unique: false,
     },
+    age: { type: Number },
+    periodCycle: { type: String },
+    lastPeriod: { type: Date },
+    weight: { type: String },
   },
   { timestamps: true }
 );

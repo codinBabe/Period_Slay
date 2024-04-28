@@ -15,10 +15,17 @@ label {
 form.form > div > input {
   @apply w-full rounded-xl border border-primary500 p-3 outline-none text-2xl;
 }
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+input[type="date"],
+textarea {
+  @apply w-full px-4 py-2 border rounded-md;
+}
 input[type="text"]:disabled,
 input[type="password"]:disabled,
-input[type="email"]:disabled,
-input[type="tel"]:disabled {
+input[type="email"]:disabled {
   @apply bg-gray-200 border-gray-300 text-gray-600 cursor-not-allowed;
 }
 button[type="submit"]:disabled {
@@ -39,17 +46,12 @@ div.login-icon > button {
 div.validation ul > li {
   @apply flex items-center italic;
 }
-div.create-blog-form form > label {
+label {
   @apply block my-4 text-lg;
-}
-div.create-blog-form input,
-div.create-blog-form textarea {
-  @apply w-full px-4 py-2 border rounded-md;
 }
 div.create-blog-form div.sections input {
   @apply mb-5;
 }
-
 div.headingBtn button {
   @apply w-full text-white bg-primary500 rounded-md p-2;
 }

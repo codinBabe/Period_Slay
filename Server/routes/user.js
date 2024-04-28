@@ -13,9 +13,31 @@ router.get("/", verifyToken, async (req, res) => {
     res.status(200).json({
       fullName: user.name,
       email: user.email,
+      age: user.age,
+      periodCycle: user.periodCycle,
+      lastPeriod: user.lastPeriod,
+      weight: user.weight,
     });
   } catch (error) {
     console.error("Error fetching user details:", error);
+    res.status(500).json({ message: "An unexpected error occurred." });
+  }
+});
+
+router.put("/", verifyToken, async (req, res) => {
+  try {
+    const { name, age, periodCycle, lastPeriod, weight } = req.body;
+    const updatedUser = await User.findByIdAndUpdate(
+      req.userId,
+      { name, age, periodCycle, lastPeriod, weight },
+      { new: true }
+    );
+    if (!updatedUser) {
+      return res.status(404).json({ message: "User not found." });
+    }
+    res.status(200).json(updatedUser);
+  } catch (error) {
+    console.error("Error updating user:", error);
     res.status(500).json({ message: "An unexpected error occurred." });
   }
 });

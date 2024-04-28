@@ -10,6 +10,7 @@ import SignUp from "./pages/SignUp";
 import Profile from "./pages/Profile";
 import CreateBlog from "./pages/CreateBlog";
 import BlogPost from "./pages/BlogPost";
+import EditUser from "./pages/UserEdit";
 const isAuthenticated = () => {
   const token = localStorage.getItem("token");
   return !!token;
@@ -31,6 +32,10 @@ let router = createBrowserRouter([
   {
     path: "/profile",
     element: isAuthenticated() ? <Profile /> : <Home />,
+  },
+  {
+    path: "/profile/edit",
+    element: isAuthenticated() ? <EditUser /> : <Home />,
   },
   {
     path: "/blog",
