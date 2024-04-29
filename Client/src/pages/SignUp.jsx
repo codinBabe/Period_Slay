@@ -49,7 +49,7 @@ export default function SignUp() {
     e.preventDefault();
     setCreatingUser(true);
     try {
-      const response = await fetch("https://period-slay.onrender.com/signup", {
+      const response = await fetch("/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
