@@ -72,7 +72,7 @@ export default function UserForm({ user, onSave }) {
           <label>
             Weight
             <input
-              type="text"
+              type="number"
               value={weight}
               onChange={(e) => handleDetailsChange("weight", e.target.value)}
             />

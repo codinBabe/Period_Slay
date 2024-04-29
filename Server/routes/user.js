@@ -27,9 +27,10 @@ router.get("/", verifyToken, async (req, res) => {
 router.put("/", verifyToken, async (req, res) => {
   try {
     const { name, age, periodCycle, lastPeriod, weight } = req.body;
+    const parsedWeight = parseFloat(weight.replace("kg", ""));
     const updatedUser = await User.findByIdAndUpdate(
       req.userId,
-      { name, age, periodCycle, lastPeriod, weight },
+      { name, age, periodCycle, lastPeriod, weight: `${parsedWeight}kg` },
       { new: true }
     );
     if (!updatedUser) {

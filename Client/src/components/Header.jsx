@@ -6,6 +6,7 @@ import ProfileIcon from "../assets/profile-icon.svg";
 export default function Header() {
   const location = useLocation();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -19,7 +20,7 @@ export default function Header() {
           <Link to="/">
             <img src={Logo} alt="logo" width={150} />
           </Link>
-          <ul className="flex items-center gap-4 font-medium text-base">
+          <ul className="sm:hidden md:flex items-center gap-4 font-medium text-base ">
             <li>
               <Link
                 className={location.pathname.includes("/blog") ? "active" : ""}

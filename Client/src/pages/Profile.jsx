@@ -94,15 +94,7 @@ export default function Profile() {
                 >
                   My Profile
                 </button>
-                <button
-                  className={
-                    activeButton === "Notifications"
-                      ? "bg-primary50 w-[210px] h-[70px] ml-[-16px]"
-                      : ""
-                  }
-                >
-                  Notifications
-                </button>
+                <button>Notifications</button>
                 <CustomButton
                   text={"Log out"}
                   imgSrc={FailIcon}
