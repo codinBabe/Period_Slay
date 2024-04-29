@@ -19,7 +19,7 @@ export default function Login() {
     e.preventDefault();
     setLoginInProgress(true);
     try {
-      const response = await fetch("/login", {
+      const response = await fetch("https://period-slay.vercel.app/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
