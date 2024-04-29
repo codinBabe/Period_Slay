@@ -90,7 +90,7 @@ export default function Home() {
                   .slice(0, 3)
                   .map((item, i) => (
                     <BlogCard
-                      key={i}
+                      key={item.i}
                       id={item._id}
                       poster={item.poster}
                       author={item.author}
