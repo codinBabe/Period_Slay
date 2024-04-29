@@ -65,7 +65,7 @@ export default function Login() {
                   />
                   <button
                     type="button"
-                    className="absolute top-10 right-0 px-3 py-2"
+                    className="absolute top-12 right-2 px-3 py-2"
                     onClick={() => setShowPassword(!showPassword)}
                   >
                     {showPassword ? (

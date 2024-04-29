@@ -24,7 +24,6 @@ export default function MyModal({ isOpen, closeModal, isAuthenticated }) {
             text-white rounded-tr-3xl rounded-br-3xl flex flex-col justify-center gap-5"
           >
             {isAuthenticated() ? (
-              // Content for authenticated users
               <>
                 <p className="font-DmSerif text-[52px]">
                   Stay in the Know: Are You in Your Safe Period?

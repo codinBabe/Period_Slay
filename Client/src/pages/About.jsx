@@ -2,7 +2,6 @@ import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import AboutImage from "../assets/About-Image.svg";
-import AboutImagePNG from "../assets/About-ImagePNG.png";
 import Facebook from "../assets/Facebook.svg";
 import Instagram from "../assets/Instagram.svg";
 import X from "../assets/X.svg";

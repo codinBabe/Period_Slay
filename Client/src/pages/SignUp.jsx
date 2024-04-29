@@ -49,7 +49,7 @@ export default function SignUp() {
     e.preventDefault();
     setCreatingUser(true);
     try {
-      const response = await fetch("/signup", {
+      const response = await fetch("https://period-slay.onrender.com/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -107,7 +107,7 @@ export default function SignUp() {
                   />
                   <button
                     type="button"
-                    className="absolute top-10 right-0 px-3 py-2"
+                    className="absolute top-12 right-2 px-3 py-2"
                     onClick={() => setShowPassword(!showPassword)}
                   >
                     {showPassword ? (
@@ -163,7 +163,7 @@ export default function SignUp() {
                   />
                   <button
                     type="button"
-                    className="absolute top-10 right-0 px-3 py-2"
+                    className="absolute top-12 right-2 px-3 py-2"
                     onClick={() => setShowPassword(!showPassword)}
                   >
                     {showPassword ? (

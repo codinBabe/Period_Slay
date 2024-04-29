@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Womanwithafro from "../assets/woman-with-afro.png";
-import WomanExercise from "../assets/woman_exercising.png";
 import PeriodCalender from "../assets/period calendar.png";
 import UterusPic from "../assets/uterus.png";
 import HomeIcon from "../assets/home-icon.svg";
@@ -22,7 +21,7 @@ export default function Home() {
   const [blog, setBlog] = useState([]);
 
   useEffect(() => {
-    fetch("/blog").then((res) => {
+    fetch("https://period-slay.onrender.com/blog").then((res) => {
       res.json().then((blog) => setBlog(blog));
     });
   }, []);
