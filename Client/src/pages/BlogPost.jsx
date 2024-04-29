@@ -11,7 +11,6 @@ import LinkedIn from "../assets/LinkedIn.svg";
 export default function BlogPost() {
   const { id } = useParams();
   const [post, setPost] = useState(null);
-  console.log(post);
   useEffect(() => {
     fetch(`/blog/${id}`).then((res) => {
       res.json().then((post) => setPost(post));
