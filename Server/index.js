@@ -7,7 +7,7 @@ import dbConnect from "./db/connection.js";
 import userRouter from "./routes/user.js";
 import uploadRouter from "./routes/upload.js";
 import blogRouter from "./routes/blog.js";
-
+import calculateRouter from "./routes/calculate.js";
 const PORT = process.env.PORT || 5000;
 const app = express();
 
@@ -19,6 +19,7 @@ app.use("/login", loginRouter);
 app.use("/user", userRouter);
 app.use("/upload", uploadRouter);
 app.use("/blog", blogRouter);
+app.use("/calculate", calculateRouter);
 app.get("/", (req, res) => {
   res.send("Hello, World!");
 });
