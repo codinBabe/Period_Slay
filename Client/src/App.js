@@ -11,6 +11,7 @@ import Profile from "./pages/Profile";
 import CreateBlog from "./pages/CreateBlog";
 import BlogPost from "./pages/BlogPost";
 import EditUser from "./pages/UserEdit";
+import TrackerCalculator from "./pages/Calculate";
 const isAuthenticated = () => {
   const token = localStorage.getItem("token");
   return !!token;
@@ -52,6 +53,10 @@ let router = createBrowserRouter([
   {
     path: "/tracker",
     element: isAuthenticated() ? <PeriodTracker /> : <Home />,
+  },
+  {
+    path: "/tracker/calculate",
+    element: isAuthenticated() ? <TrackerCalculator /> : <Home />,
   },
   {
     path: "/about",

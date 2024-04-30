@@ -28,6 +28,26 @@ input[type="password"]:disabled,
 input[type="email"]:disabled {
   @apply bg-gray-200 border-gray-300 text-gray-600 cursor-not-allowed;
 }
+input[type="text"]::placeholder,
+input[type="password"]::placeholder,
+input[type="email"]::placeholder,
+input[type="number"]::placeholder {
+  @apply text-neutralNeutral text-sm font-normal;
+}
+input[type="date"],
+input[type="number"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+input[type="date"],
+input[type="number"]::-webkit-calendar-picker-indicator:hover {
+  filter: invert(0);
+}
+
+input[type="date"],
+input[type="number"] {
+  @apply text-neutralNeutral font-normal;
+}
+
 button[type="submit"]:disabled {
   @apply cursor-not-allowed bg-primary200 text-gray-300;
 }

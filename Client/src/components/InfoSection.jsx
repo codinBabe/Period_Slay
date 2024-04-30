@@ -4,9 +4,9 @@ import PlaceholderImage from "../assets/Placeholder Image.png";
 export default function InfoSection() {
   return (
     <section className="my-12">
-      <div className="container mx-auto">
-        <div className="flex items-center justify-between">
-          <div className="flex flex-col gap-4">
+      <div className="w-[90%] mx-auto">
+        <div className="flex flex-col md:flex-row items-center justify-between">
+          <div className="md:flex flex-col gap-4">
             <div className="link">
               <Link
                 className="font-DmSerif text-2xl text-primary500"

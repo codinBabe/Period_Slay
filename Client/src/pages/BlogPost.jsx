@@ -22,7 +22,7 @@ export default function BlogPost() {
       <Header />
       <main>
         <section className="my-12">
-          <div className="container mx-auto">
+          <div className="w-[90%] mx-auto">
             {post && (
               <>
                 <div className="hero-section">
@@ -38,7 +38,7 @@ export default function BlogPost() {
                     </h1>
                     <img src={post.poster} alt={post.title} className="mb-4" />
                   </div>
-                  <div className="flex items-center justify-between my-6">
+                  <div className="flex flex-col md:flex-row items-center justify-between my-6">
                     <div className="flex items-center gap-8 text-base">
                       <div>
                         <p className="">Written by</p>
@@ -65,8 +65,8 @@ export default function BlogPost() {
                     </div>
                   </div>
                 </div>
-                <div className="content-section flex justify-center my-20">
-                  <div className="left w-[320px]">
+                <div className="content-section flex flex-col md:flex-row justify-center my-20">
+                  <div className="left md:w-[320px]">
                     <h2 className="font-DmSerif text-primary500 text-[32px]">
                       Contents
                     </h2>
@@ -78,7 +78,7 @@ export default function BlogPost() {
                     ))}
                     {post.conclusion && <h3 className="text-lg">Conclusion</h3>}
                   </div>
-                  <div className="right w-[896px]">
+                  <div className="right md:w-[896px]">
                     <h2 className="font-DmSerif text-primary500 text-[32px] mb-10">
                       {post.topic}
                     </h2>
@@ -86,7 +86,13 @@ export default function BlogPost() {
                       <h3 className="font-medium text-[26px] mt-10 mb-5">
                         Introduction
                       </h3>
-                      <p>{post.introduction}</p>
+                      <div>
+                        {post.introduction.split("\n").map((item, index) => (
+                          <p key={index} className="my-2">
+                            {item.trim()}
+                          </p>
+                        ))}
+                      </div>
                     </div>
                     <img
                       src={post.contentImage}

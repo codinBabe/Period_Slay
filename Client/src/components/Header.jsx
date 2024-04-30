@@ -15,12 +15,12 @@ export default function Header() {
 
   return (
     <nav className="border-b-2 border-b-primary500">
-      <div className="container mx-auto">
+      <div className="w-[90%] mx-auto">
         <div className="tabs flex items-center justify-between">
           <Link to="/">
             <img src={Logo} alt="logo" width={150} />
           </Link>
-          <ul className="sm:hidden md:flex items-center gap-4 font-medium text-base ">
+          <ul className="hidden md:flex items-center gap-4 font-medium text-base ">
             <li>
               <Link
                 className={location.pathname.includes("/blog") ? "active" : ""}
@@ -31,7 +31,9 @@ export default function Header() {
             </li>
             <li>
               <Link
-                className={location.pathname === "/tracker" ? "active" : ""}
+                className={
+                  location.pathname.includes("/tracker") ? "active" : ""
+                }
                 to="/tracker"
               >
                 Period Tracker

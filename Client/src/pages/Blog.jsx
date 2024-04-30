@@ -32,12 +32,12 @@ export default function Blog() {
       <Header />
       <main>
         <section className="bg-primary500 text-white">
-          <div className="container mx-auto py-28">
-            <div className="w-[974px] h-[146px]">
+          <div className="container mx-auto px-8 py-8 md:py-28 md:px-0">
+            <div className="md:w-[974px] md:h-[146px]">
               <h1 className="font-DmSerif text-[32px] mb-5">
                 Discover Health and Wellness
               </h1>
-              <p className="text-xl">
+              <p className="text-lg md:text-xl">
                 Whether you're navigating puberty, managing your menstrual
                 cycle, or seeking advice on sexual health, our expertly curated
                 content aims to inform, inspire, and support you every step of
@@ -48,7 +48,7 @@ export default function Blog() {
           </div>
         </section>
         <section>
-          <div className="container mx-auto py-28">
+          <div className="w-[90%] mx-auto py-28">
             <Slider autoplay={true} autoplaySpeed={5000} speed={1000}>
               {blog.map((item, i) => (
                 <div key={i}>
@@ -70,7 +70,7 @@ export default function Blog() {
         </section>
 
         <section>
-          <div className="container mx-auto my-8">
+          <div className="w-[90%] mx-auto my-8">
             <div className="mb-2">
               {categoryNames.map((category, i) => (
                 <button
@@ -86,7 +86,7 @@ export default function Blog() {
                 </button>
               ))}
             </div>
-            <div className="grid grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-3 gap-6">
               {(selectedCategory === "View all"
                 ? blog
                 : categories[selectedCategory]
@@ -106,9 +106,9 @@ export default function Blog() {
           </div>
         </section>
         <section className="bg-primary500 py-10 text-white">
-          <div className="container mx-auto">
+          <div className="w-[90%] mx-auto">
             <div className="flex flex-col gap-5 py-12">
-              <h2 className="font-DmSerif text-[46px]">
+              <h2 className="font-DmSerif text-[30px] md:text-[46px]">
                 Unlock Your Health Potential Today
               </h2>
               <p className="text-lg">
@@ -116,10 +116,10 @@ export default function Blog() {
                 personalized health content.
               </p>
               <div className="flex items-center gap-6">
-                <button className="py-4 px-8 text-lg font-medium bg-white text-primary500 rounded-md">
+                <button className="py-3 px-6 text-base md:py-4 md:px-8 md:text-lg font-medium bg-white text-primary500 rounded-md">
                   Sign Up
                 </button>
-                <button className="py-4 px-8 text-lg font-medium border border-white text-white rounded-md">
+                <button className="py-3 px-6 text-base md:py-4 md:px-8 md:text-lg font-medium border border-white text-white rounded-md">
                   Learn More
                 </button>
               </div>
