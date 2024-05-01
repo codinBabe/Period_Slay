@@ -65,7 +65,7 @@ export default function TrackerCalculator() {
         }
       );
       if (response.ok) {
-        alert("Previous deleted, you can noe fill the form again");
+        alert("Previous deleted. You can now refresh and fill the form again");
       } else {
         console.log("error", response);
       }
