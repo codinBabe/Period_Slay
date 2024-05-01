@@ -83,7 +83,7 @@ let router = createBrowserRouter([
     element: isAuthenticated() ? <Contact /> : <Home />,
   },
   {
-    path: "/support",
+    path: "/contact/support",
     element: isAuthenticated() ? <Support /> : <Home />,
   },
 ]);
