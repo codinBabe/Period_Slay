@@ -55,7 +55,7 @@ export default function Home() {
                   and other health issues.
                 </p>
                 <Link
-                  to={"/"}
+                  to={"/blog"}
                   className="bg-white text-base py-2 px-6 font-medium text-primary500 md:py-4 md:px-8 md:text-xl rounded-md"
                 >
                   Learn More...
