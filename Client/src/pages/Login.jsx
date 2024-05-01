@@ -41,39 +41,44 @@ export default function Login() {
       <Header />
       <main className="bg-primary50 relative">
         <div className="container mx-auto py-20 relative">
-          <div className="max-w-3xl w-1/2 px-4 relative z-10">
-            <div className="bg-white rounded-xl p-12 shadow-2xl transform translate-x-[73%]">
+          <div className="max-w-3xl w-[40%] px-4 relative z-10">
+            <div className="bg-white rounded-xl p-12 shadow-2xl transform translate-x-[110%]">
               <h1 className="font-DmSerif text-6xl text-center">Log In</h1>
               <form className="form" onSubmit={handleLogin}>
                 <div className="mb-6">
-                  <label htmlFor="email">Email</label>
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    disabled={loginInProgress}
-                  />
+                  <label htmlFor="email">
+                    Email
+                    <input
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      disabled={loginInProgress}
+                      className=" border-primary500"
+                    />
+                  </label>
                 </div>
-                <div className="mb-4 relative">
-                  <label htmlFor="password">Password</label>
-                  <input
-                    type={showPassword ? "text" : "password"}
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    disabled={loginInProgress}
-                    className="w-full border rounded-md px-3 py-2"
-                  />
-                  <button
-                    type="button"
-                    className="absolute top-12 right-2 px-3 py-2"
-                    onClick={() => setShowPassword(!showPassword)}
-                  >
-                    {showPassword ? (
-                      <img src={EyeSlashIcon} alt="Hide Password" />
-                    ) : (
-                      <img src={EyeIcon} alt="Show Password" />
-                    )}
-                  </button>
+                <div className="mb-4">
+                  <label className="relative" htmlFor="password">
+                    Password
+                    <input
+                      type={showPassword ? "text" : "password"}
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      disabled={loginInProgress}
+                      className=" border-primary500"
+                    />
+                    <button
+                      type="button"
+                      className="absolute top-7 right-2 px-3 py-2"
+                      onClick={() => setShowPassword(!showPassword)}
+                    >
+                      {showPassword ? (
+                        <img src={EyeSlashIcon} alt="Hide Password" />
+                      ) : (
+                        <img src={EyeIcon} alt="Show Password" />
+                      )}
+                    </button>
+                  </label>
                 </div>
                 <Link to="/forget" className="block text-xl mb-6 text-right">
                   Forgot password?
@@ -108,13 +113,13 @@ export default function Login() {
               </div>
             </div>
           </div>
-          <div className="absolute top-[13%] left-[27%] transform -translate-x-1/2">
+          <div className="absolute top-[13%] left-[34%] transform -translate-x-1/2">
             <Slogan />
             <div className="relative">
               <img
                 src={UterusFull}
                 alt="placeholder"
-                className="mt-[-85px] ml-[-58px] h-[250px] w-[350px]"
+                className="mt-[-60px] ml-[-15px] h-[300px] w-[300px]"
               />
             </div>
           </div>

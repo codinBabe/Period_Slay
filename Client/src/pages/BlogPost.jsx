@@ -11,11 +11,24 @@ import LinkedIn from "../assets/LinkedIn.svg";
 export default function BlogPost() {
   const { id } = useParams();
   const [post, setPost] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
-    fetch(`/blog/${id}`).then((res) => {
-      res.json().then((post) => setPost(post));
-    });
+    fetch(`/blog/${id}`)
+      .then((res) => res.json())
+      .then((post) => {
+        setPost(post);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching post:", error);
+        setIsLoading(false);
+      });
   }, [id]);
+
+  if (isLoading) {
+    return <div className="text-center">Loading...</div>;
+  }
 
   return (
     <>
@@ -49,17 +62,37 @@ export default function BlogPost() {
                         <p className="font-medium">{post.datePublished}</p>
                       </div>
                     </div>
-                    <div className="flex items-center gap-3">
-                      <a href="#" target="_blank" rel="noreferrer">
+                    <div className="social-icons flex items-center gap-2">
+                      <a
+                        className="bg-neutralLightest rounded-full w-8 h-8 flex items-center justify-center"
+                        href="#"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
                         <img src={LinkIcon} alt="icon" />
                       </a>
-                      <a href="#" target="_blank" rel="noreferrer">
+                      <a
+                        className="bg-neutralLightest rounded-full w-8 h-8 flex items-center justify-center"
+                        href="#"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
                         <img src={LinkedIn} alt="icon" />
                       </a>
-                      <a href="#" target="_blank" rel="noreferrer">
+                      <a
+                        className="bg-neutralLightest rounded-full w-8 h-8 flex items-center justify-center"
+                        href="#"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
                         <img src={X} alt="icon" />
                       </a>
-                      <a href="#" target="_blank" rel="noreferrer">
+                      <a
+                        className="bg-neutralLightest rounded-full w-8 h-8 flex items-center justify-center"
+                        href="#"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
                         <img src={Facebook} alt="icon" />
                       </a>
                     </div>

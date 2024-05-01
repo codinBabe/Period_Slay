@@ -72,50 +72,59 @@ export default function SignUp() {
       <Header />
       <main className="bg-primary50 relative">
         <div className="container mx-auto py-20 relative">
-          <div className="max-w-3xl w-1/2 px-4 relative z-10">
-            <div className="bg-white rounded-xl p-12 shadow-2xl transform translate-x-[73%]">
+          <div className="max-w-3xl w-[40%] px-4 relative z-10">
+            <div className="bg-white rounded-xl p-12 shadow-2xl transform translate-x-[110%]">
               <h1 className="font-DmSerif text-6xl text-center mb-4">
                 Sign Up
               </h1>
               <form className="form" onSubmit={handleSignUp}>
                 <div className="mb-6">
-                  <label htmlFor="name">Full Name</label>
-                  <input
-                    type="text"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    disabled={creatingUser}
-                  />
+                  <label htmlFor="name">
+                    Full Name
+                    <input
+                      type="text"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      disabled={creatingUser}
+                      className="border-primary500"
+                    />
+                  </label>
                 </div>
                 <div className="mb-6">
-                  <label htmlFor="email">Email</label>
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    disabled={creatingUser}
-                  />
+                  <label htmlFor="email">
+                    Email
+                    <input
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      disabled={creatingUser}
+                      className="border-primary500"
+                    />
+                  </label>
                 </div>
-                <div className="mb-4 relative">
-                  <label htmlFor="password">Password</label>
-                  <input
-                    type={showPassword ? "text" : "password"}
-                    value={password}
-                    onChange={handlePasswordChange}
-                    disabled={creatingUser}
-                    className="w-full border rounded-md px-3 py-2"
-                  />
-                  <button
-                    type="button"
-                    className="absolute top-12 right-2 px-3 py-2"
-                    onClick={() => setShowPassword(!showPassword)}
-                  >
-                    {showPassword ? (
-                      <img src={EyeSlashIcon} alt="Hide Password" />
-                    ) : (
-                      <img src={EyeIcon} alt="Show Password" />
-                    )}
-                  </button>
+                <div className="mb-4">
+                  <label className="relative" htmlFor="password">
+                    Password
+                    <input
+                      type={showPassword ? "text" : "password"}
+                      value={password}
+                      onChange={handlePasswordChange}
+                      disabled={creatingUser}
+                      className="border-primary500"
+                    />
+                    <button
+                      type="button"
+                      className="absolute top-7 right-2 px-3 py-2"
+                      onClick={() => setShowPassword(!showPassword)}
+                    >
+                      {showPassword ? (
+                        <img src={EyeSlashIcon} alt="Hide Password" />
+                      ) : (
+                        <img src={EyeIcon} alt="Show Password" />
+                      )}
+                    </button>
+                  </label>
+
                   <div className="validation text-xl text-neutral800 mt-2">
                     <p>Password must:</p>
                     <ul>
@@ -152,26 +161,28 @@ export default function SignUp() {
                     </ul>
                   </div>
                 </div>
-                <div className="my-4 relative">
-                  <label htmlFor="password">Confirm Password</label>
-                  <input
-                    type={showPassword ? "text" : "password"}
-                    value={confirmPassword}
-                    onChange={(e) => setConfirmPassword(e.target.value)}
-                    disabled={creatingUser}
-                    className="w-full border rounded-md px-3 py-2"
-                  />
-                  <button
-                    type="button"
-                    className="absolute top-12 right-2 px-3 py-2"
-                    onClick={() => setShowPassword(!showPassword)}
-                  >
-                    {showPassword ? (
-                      <img src={EyeSlashIcon} alt="Hide Password" />
-                    ) : (
-                      <img src={EyeIcon} alt="Show Password" />
-                    )}
-                  </button>
+                <div className="my-4">
+                  <label htmlFor="password" className="relative">
+                    Confirm Password
+                    <input
+                      type={showPassword ? "text" : "password"}
+                      value={confirmPassword}
+                      onChange={(e) => setConfirmPassword(e.target.value)}
+                      disabled={creatingUser}
+                      className="border-primary500"
+                    />
+                    <button
+                      type="button"
+                      className="absolute top-7 right-2 px-3 py-2"
+                      onClick={() => setShowPassword(!showPassword)}
+                    >
+                      {showPassword ? (
+                        <img src={EyeSlashIcon} alt="Hide Password" />
+                      ) : (
+                        <img src={EyeIcon} alt="Show Password" />
+                      )}
+                    </button>
+                  </label>
                 </div>
                 <button
                   className="rounded-md px-8 py-4 w-full text-white text-lg font-medium bg-primary500 my-5"
@@ -191,21 +202,21 @@ export default function SignUp() {
               </div>
             </div>
           </div>
-          <div className="absolute top-[12%] left-[27%] transform -translate-x-1/2">
+          <div className="absolute top-[12%] left-[33%] transform -translate-x-1/2">
             <Slogan />
             <div className="relative">
               <img
                 src={UterusFull}
                 alt="placeholder"
-                className="mt-[-80px] ml-[-62px] h-[452px] w-[400px]"
+                className="mt-[-55px] ml-[-54px] h-[400px] w-[400px]"
               />
             </div>
           </div>
           {isSuccess && (
             <Notification
               imgSrc={SuccessIcon}
-              LinkText={"Proceed to Homepage"}
-              route={"/"}
+              LinkText={"Proceed to Login"}
+              route={"/login"}
             >
               <p className="font-medium mb-10">Account created successfully</p>
               <p>We are happy to have you onboard with us!</p>

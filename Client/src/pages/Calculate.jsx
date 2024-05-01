@@ -7,8 +7,12 @@ export default function TrackerCalculator() {
   const [firstDayLastPeriod, setFirstDayLastPeriod] = useState("");
   const [averageCycleLength, setAverageCycleLength] = useState("");
   const [lastPeriodDuration, setLastPeriodDuration] = useState("");
-  const [periods, setPeriods] = useState(null);
 
+  function handleReset() {
+    setFirstDayLastPeriod("");
+    setAverageCycleLength("");
+    setLastPeriodDuration("");
+  }
   async function handleSubmit(e) {
     e.preventDefault();
     if (averageCycleLength < 21 || averageCycleLength > 35) {
@@ -21,10 +25,11 @@ export default function TrackerCalculator() {
       return;
     }
     try {
-      const response = await fetch("/calculate", {
+      const response = await fetch("http://localhost:5000/calculate", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
         body: JSON.stringify({
           firstDayLastPeriod,
@@ -32,11 +37,19 @@ export default function TrackerCalculator() {
           lastPeriodDuration,
         }),
       });
-      const data = await response.json();
-      console.log(data);
-      setPeriods(data);
+      if (response.status === 409) {
+        alert(
+          "You have already filled the form. Click 'Recalculate' to delete previous data."
+        );
+        return;
+      }
+      if (response.ok) {
+        window.location = "/tracker/periods";
+      } else {
+        console.log("error", response);
+      }
     } catch (err) {
-      console.error("Error calculating:", err);
+      console.error("Error calculating next cycle:", err);
     }
   }
   return (
@@ -103,7 +116,8 @@ export default function TrackerCalculator() {
                     </button>
                     <button
                       className="text-white border border-white py-3 px-14 rounded-md"
-                      type="reset"
+                      type="button"
+                      onClick={handleReset}
                     >
                       Reset
                     </button>
