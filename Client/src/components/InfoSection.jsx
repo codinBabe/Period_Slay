@@ -38,7 +38,7 @@ export default function InfoSection() {
             <div className="link">
               <Link
                 className="font-DmSerif text-2xl text-primary500"
-                to={"/support"}
+                to={"/contact/support"}
               >
                 Connect with our Community
               </Link>
