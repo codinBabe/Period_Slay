@@ -7,7 +7,7 @@ export default function Newsletter() {
           Newsletter
         </h2>
         <p className="font-semibold  text-lg md:text-2xl">
-          Subscribe to our newsletter for the latest blog pots & health tips
+          Subscribe to our newsletter for the latest blog posts & health tips
         </p>
         <form className="my-5">
           <div className="flex flex-col md:flex-row items-center gap-4">

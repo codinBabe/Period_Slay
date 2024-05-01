@@ -13,6 +13,7 @@ import BlogPost from "./pages/BlogPost";
 import EditUser from "./pages/UserEdit";
 import TrackerCalculator from "./pages/Calculate";
 import PeriodInfo from "./pages/PeriodInfo";
+import ForgotPassword from "./pages/ForgetPassword";
 const isAuthenticated = () => {
   const token = localStorage.getItem("token");
   return !!token;
@@ -30,6 +31,10 @@ let router = createBrowserRouter([
   {
     path: "/signup",
     element: <SignUp />,
+  },
+  {
+    path: "/forget",
+    element: <ForgotPassword />,
   },
   {
     path: "/profile",
