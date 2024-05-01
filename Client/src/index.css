@@ -75,3 +75,13 @@ div.create-blog-form div.sections input {
 div.headingBtn button {
   @apply w-full text-white bg-primary500 rounded-md p-2;
 }
+.content-link {
+  transition: background-color 0.3s ease;
+}
+.content-section a {
+  @apply block p-1;
+}
+.content-link:hover,
+.content-link:focus {
+  @apply bg-primary10 text-primary500 w-full;
+}

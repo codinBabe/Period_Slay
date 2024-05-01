@@ -27,7 +27,12 @@ export default function CustomButton({
 
   return (
     <div className="relative">
-      <button onClick={handleConfirmDelete}>{text}</button>
+      <button
+        className="focus:bg-primary50 hover:bg-primary50 w-full text-left pl-5 py-5"
+        onClick={handleConfirmDelete}
+      >
+        {text}
+      </button>
       {showConfirmation && (
         <div className="fixed inset-0 z-50 overflow-auto bg-black bg-opacity-60 flex justify-center items-center">
           <div className="w-[940px] h-[518px] bg-white flex flex-col items-center justify-center gap-10 relative">

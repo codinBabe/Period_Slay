@@ -99,17 +99,29 @@ export default function BlogPost() {
                   </div>
                 </div>
                 <div className="content-section flex flex-col md:flex-row justify-center my-20">
-                  <div className="left md:w-[320px]">
+                  <div className="left md:w-[320px] mr-8">
                     <h2 className="font-DmSerif text-primary500 text-[32px]">
                       Contents
                     </h2>
-                    <h3 className="text-lg">Introduction</h3>
+                    <a href="#introduction" className="content-link text-lg">
+                      Introduction
+                    </a>
                     {post?.sections?.map((item, i) => (
-                      <h3 key={i} className="text-lg">
+                      <a
+                        key={i}
+                        href={`#${item.subtitle
+                          .replace(/\s+/g, "-")
+                          .toLowerCase()}`}
+                        className="content-link text-lg"
+                      >
                         {item.subtitle}
-                      </h3>
+                      </a>
                     ))}
-                    {post.conclusion && <h3 className="text-lg">Conclusion</h3>}
+                    {post.conclusion && (
+                      <a href="#conclusion" className="content-link text-lg">
+                        Conclusion
+                      </a>
+                    )}
                   </div>
                   <div className="right md:w-[896px]">
                     <h2 className="font-DmSerif text-primary500 text-[32px] mb-10">
@@ -134,7 +146,12 @@ export default function BlogPost() {
                     />
                     <div>
                       {post?.sections?.map((section, i) => (
-                        <div key={i}>
+                        <div
+                          key={i}
+                          id={section.subtitle
+                            .replace(/\s+/g, "-")
+                            .toLowerCase()}
+                        >
                           <h3 className="font-medium text-[26px] mb-5">
                             {section.subtitle}
                           </h3>
@@ -149,7 +166,7 @@ export default function BlogPost() {
                       ))}
                     </div>
                     {post.conclusion && (
-                      <div>
+                      <div id="conclusion">
                         <h3 className="font-medium text-[26px] my-5">
                           Conclusion
                         </h3>

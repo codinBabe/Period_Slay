@@ -8,7 +8,6 @@ import Editpen from "../assets/editpen.svg";
 export default function Profile() {
   const [userDetails, setUserDetails] = useState([]);
   const [blog, setBlog] = useState([]);
-  const [activeButton, setActiveButton] = useState("My Profile");
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -83,18 +82,14 @@ export default function Profile() {
       <main>
         <div className="container mx-auto py-10">
           <div className="flex items-start gap-10">
-            <div className="w-[210px] h-[340px]bg-white shadow-lg">
-              <div className="flex flex-col items-start gap-10 pl-4 py-4 text-xl">
-                <button
-                  className={
-                    activeButton === "My Profile"
-                      ? "bg-primary50 w-[210px] h-[70px] ml-[-16px]"
-                      : ""
-                  }
-                >
+            <div className="w-[210px] h-[340px] bg-white shadow-lg">
+              <div className="flex flex-col items-start gap-4 text-xl">
+                <button className="focus:bg-primary50 hover:bg-primary50 w-full text-left pl-5 py-5">
                   My Profile
                 </button>
-                <button>Notifications</button>
+                <button className="focus:bg-primary50 hover:bg-primary50 w-full text-left pl-5 py-5">
+                  Notifications
+                </button>
                 <CustomButton
                   text={"Log out"}
                   imgSrc={FailIcon}
