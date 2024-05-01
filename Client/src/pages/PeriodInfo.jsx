@@ -26,7 +26,7 @@ export default function PeriodInfo() {
   }, []);
 
   function handleRecalculate() {
-    window.location = "tracker/calculate";
+    window.location = "/tracker/calculate";
   }
   return (
     <>
