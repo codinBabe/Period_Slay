@@ -28,7 +28,7 @@ export default function Contact() {
               className="text-primary500 border-2 rounded-lg border-primary500 
                         w-20 p-0.5 mt-10 text-xs h-10 font-bold cursor-pointer "
             >
-              <Link to="/support">Chat Now</Link>
+              <Link to="/contact/support">Chat Now</Link>
             </button>
           </div>
           <div className="bg-primary50 w-80 h-60 mb-5 rounded-lg text-center p-5">
