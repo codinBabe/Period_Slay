@@ -19,7 +19,7 @@ export default function Contact() {
                         <h3 className='mt-10 font-bold'>Chat Support</h3>
                         <h6 className='content-center mt-10 text-sm'>Our support team is just a click away</h6>
                         <button className='text-primary500 border-2 rounded-lg border-primary500 
-                        w-20 p-0.5 mt-10 text-xs h-10 font-bold cursor-pointer '><Link to="/contact">Chat Now</Link></button>
+                        w-20 p-0.5 mt-10 text-xs h-10 font-bold cursor-pointer '><Link to="/support">Chat Now</Link></button>
                     </div>
                     <div className='bg-primary400 w-80 h-60 mb-5 rounded-lg text-center p-5'>
                         <h3 className='mt-10 font-bold'>Email Support</h3>

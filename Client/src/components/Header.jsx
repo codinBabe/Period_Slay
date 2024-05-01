@@ -53,14 +53,8 @@ export default function Header() {
                 Contact
               </Link>
             </li>
-            <li>
-              <Link
-                className={location.pathname === "/faq" ? "active" : ""}
-                to="/faq"
-              >
-                FAQ
-              </Link>
-            </li>
+            
+            
           </ul>
           {isAuthenticated ? (
             <Link to={"/profile"}>

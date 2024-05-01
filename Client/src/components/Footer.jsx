@@ -50,7 +50,7 @@ export default function Footer() {
             <div className='container mx-auto'>
                 <div className='flex items-center justify-center gap-4 text-xs py-14'>
                     <p>© {new Date().getFullYear()} Period Slay. All rights reserved.</p>
-                    <Link to="/" className='underline'>FAQs</Link>
+                    <Link to="/faq" className='underline'>FAQs</Link>
                     <Link to="/" className='underline'>Terms and Conditions</Link>
                     <Link to="/" className='underline'>Cookie Settings</Link>
                 </div>
