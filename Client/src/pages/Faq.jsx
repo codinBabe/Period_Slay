@@ -1,5 +1,6 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import cheveron from '../assets/cheveron-down.svg';
 
 export default function Faq()  {
   
@@ -17,6 +18,7 @@ export default function Faq()  {
             <div className='flex flex-col gap-[18px]'>
                 <h1 className='font-medium text-4xl font-DmSerif'>FAQs</h1>
                 <h5>Find answers to commonly asked questions about our website.</h5>
+               
             </div>
             <div className='flex flex-col gap-[18px]'>
                 <h1 className='font-medium font-DmSerif'>How do I track my period?</h1>
@@ -48,19 +50,30 @@ export default function Faq()  {
            <h3 className='font-DMSerif text-xl font-bold ml-[157px]'> Find answers to common questions about the sign-up and log-in process.</h3>
             <div className='flex flex-col gap-4 ml-[148px] mt-10 mb-10'>
                 <div className='w-[1250px] h-auto overflow-hidden
-                 border-black p-4 relative'>What is Period Slay?
-                 </div>
-                 <div className='w-[1250px] h-auto overflow-hidden
-                  border-black p-4 relative'>How does Period Slay work?
+                 border-b-2 border-black p-4 relative'>What is Period Slay?
+                 <div> <img src={cheveron} alt="" srcset="" className= 'absolute right-2 top-[3px]'/>
+                    </div></div>
+                 <div className='w-[1250px] h-auto overflow-hidden border-b-2 border-black
+                   p-4 relative'>How does Period Slay work?
+                   <div> <img src={cheveron} alt="" srcset="" className= 'absolute right-2 top-[3px]'/>
+                    </div>
                 </div>
                 <div className='w-[1250px] h-auto overflow-hidden
-                 border-black p-4 relative'>Is Period Slay free to use?</div>
-                <div className='w-[1250px] h-auto overflow-hidden
-                 border-black p-4 relative'>Is my data secure on Period Slay?</div>
-                <div className='w-[1250px] h-auto overflow-hidden
-                 border-black p-4 relative'>What kind of educational resources does Period Slay provide?</div>
-                 <div className='w-[1250px] h-auto overflow-hidden border-[0px, 0px, 0.5px, 0px]
-                 border-black p-4 relative'>Can I share my period tracking data with my healthcare provider?</div>
+                 p-4 relative border-b-2 border-black'>Is Period Slay free to use?
+                 <div> <img src={cheveron} alt="" srcset="" className= 'absolute right-2 top-[3px]'/>
+                    </div></div>
+                <div className='w-[1250px] h-auto overflow-hidden border-b-2 border-black
+                 p-4 relative'>Is my data secure on Period Slay?
+                 <div> <img src={cheveron} alt="" srcset="" className= 'absolute right-2 top-[3px]'/>
+                    </div></div>
+                <div className='w-[1250px] h-auto overflow-hidden border-b-2 border-black
+                 p-4 relative'>What kind of educational resources does Period Slay provide?
+                 <div> <img src={cheveron} alt="" srcset="" className= 'absolute right-2 top-[3px]'/>
+                    </div></div>
+                 <div className='w-[1250px] h-auto overflow-hidden border-b-2 border-black 
+                 p-4 relative'>Can I share my period tracking data with my healthcare provider?
+                 <div> <img src={cheveron} alt="" srcset="" className= 'absolute right-2 top-[3px]'/>
+                    </div></div>
                 </div>
                 
                 </div>

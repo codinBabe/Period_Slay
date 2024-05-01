@@ -12,6 +12,7 @@ import HomeIcon4 from "../assets/home-icon-4.svg";
 import HomeIcon5 from "../assets/home-icon-5.svg";
 import HomeIcon6 from "../assets/home-icon-6.svg";
 import Newsletter from "../components/Newsletter";
+import PlaceholderImage from '../assets/Placeholder Image.png';
 import { Link } from "react-router-dom";
 import MyModal from "../components/Modal";
 import InfoSection from "../components/InfoSection";
@@ -129,7 +130,6 @@ export default function Home() {
         </section>
 
         <InfoSection />
- 3e52dfd78584b7cc382f3c5e637d57b746733d49
         <section>
           <div className="container mx-auto">
             <h2 className="font-DmSerif text-5xl text-primary500">

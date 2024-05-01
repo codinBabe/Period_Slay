@@ -1,19 +1,13 @@
 import React from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-HEAD
-import PeriodTracker from './pages/Tracker';
-import Contact from './pages/Contact';
-import Home from './pages/Home';
-import About from './pages/About';
-import Blog from './pages/Blog';
-import Login from './pages/Login';
-import SignUp from './pages/SignUp';
+
 import Faq from './pages/Faq';
 import PeriodTracker from "./pages/Tracker";
 import Contact from "./pages/Contact";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Blog from "./pages/Blog";
+import FAQ from "./pages/Faq";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import Profile from "./pages/Profile";
@@ -23,7 +17,6 @@ const isAuthenticated = () => {
   const token = localStorage.getItem("token");
   return !!token;
 };
-e52dfd78584b7cc382f3c5e637d57b746733d49
 
 let router = createBrowserRouter([
   {
