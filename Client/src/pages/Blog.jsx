@@ -13,7 +13,7 @@ export default function Blog() {
   const [blog, setBlog] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("View all");
   useEffect(() => {
-    fetch("/blog").then((res) => {
+    fetch("https://period-slay.onrender.com/blog").then((res) => {
       res.json().then((blog) => setBlog(blog));
     });
   }, []);

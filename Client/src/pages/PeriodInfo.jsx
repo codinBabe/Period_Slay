@@ -27,12 +27,15 @@ export default function PeriodInfo() {
 
   async function handleRecalculate() {
     try {
-      const response = await fetch("http://localhost:5000/calculate", {
-        method: "DELETE",
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      });
+      const response = await fetch(
+        "https://period-slay.onrender.com/calculate",
+        {
+          method: "DELETE",
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
       if (response.ok) {
         window.location = "/tracker/calculate";
       } else {

@@ -25,18 +25,21 @@ export default function TrackerCalculator() {
       return;
     }
     try {
-      const response = await fetch("http://localhost:5000/calculate", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-        body: JSON.stringify({
-          firstDayLastPeriod,
-          averageCycleLength,
-          lastPeriodDuration,
-        }),
-      });
+      const response = await fetch(
+        "https://period-slay.onrender.com/calculate",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+          body: JSON.stringify({
+            firstDayLastPeriod,
+            averageCycleLength,
+            lastPeriodDuration,
+          }),
+        }
+      );
       if (response.status === 409) {
         alert(
           "You have already filled the form. Click 'Recalculate' to delete previous data."
@@ -58,12 +61,12 @@ export default function TrackerCalculator() {
       <main>
         <section>
           <div className="w-[90%] mx-auto p-10">
-            <div className="flex items-center gap-10">
+            <div className="flex flex-col md:flex-row items-center gap-10">
               <div>
                 <img src={Calculate2} alt="placeholder" />
               </div>
-              <div className="w-[620px]">
-                <h1 className="font-DmSerif text-[52px] mb-5">
+              <div className="md:w-[620px]">
+                <h1 className="font-DmSerif text-[36px] md:text-[52px] mb-5">
                   Period Tracker & Calculator
                 </h1>
                 <p className="text-xl">
@@ -76,9 +79,9 @@ export default function TrackerCalculator() {
           </div>
         </section>
         <section>
-          <div className="w-[90%] mx-auto px-12 mb-14">
-            <div className="flex items-start">
-              <div className="w-[641px] bg-primary500 text-white p-[41px] flex flex-col gap-8">
+          <div className="w-[90%] mx-auto md:px-12 mb-14">
+            <div className="flex flex-col md:flex-row items-start">
+              <div className="md:w-[641px] bg-primary500 text-white p-5 md:p-[41px] flex flex-col gap-8">
                 <h2 className="font-DmSerif text-[36px]">Track Your Period</h2>
                 <form onSubmit={handleSubmit}>
                   <label>
@@ -107,15 +110,15 @@ export default function TrackerCalculator() {
                       placeholder="3 days"
                     />
                   </label>
-                  <div className="flex items-center gap-8 mt-10 text-lg font-medium">
+                  <div className="flex items-center gap-8 mt-10  text-base md:text-lg font-medium">
                     <button
-                      className="text-primary500 py-3 px-6 bg-white rounded-md"
+                      className="text-primary500 py-2 px-4 md:py-3 md:px-6 bg-white rounded-md"
                       type="submit"
                     >
                       Proceed to Calculate
                     </button>
                     <button
-                      className="text-white border border-white py-3 px-14 rounded-md"
+                      className="text-white border border-white py-2 px-4 md:py-3 md:px-14 rounded-md"
                       type="button"
                       onClick={handleReset}
                     >

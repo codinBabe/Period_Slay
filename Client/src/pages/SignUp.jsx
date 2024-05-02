@@ -38,7 +38,6 @@ export default function SignUp() {
     setPasswordValidations(validations);
   };
 
-  // Handle password change and validation
   const handlePasswordChange = (e) => {
     const newPassword = e.target.value;
     setPassword(newPassword);
@@ -49,7 +48,7 @@ export default function SignUp() {
     e.preventDefault();
     setCreatingUser(true);
     try {
-      const response = await fetch("/signup", {
+      const response = await fetch("https://period-slay.onrender.com/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

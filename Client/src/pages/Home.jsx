@@ -21,7 +21,7 @@ export default function Home() {
   const [blog, setBlog] = useState([]);
 
   useEffect(() => {
-    fetch("/blog").then((res) => {
+    fetch("https://period-slay.onrender.com/blog").then((res) => {
       res.json().then((blog) => setBlog(blog));
     });
   }, []);

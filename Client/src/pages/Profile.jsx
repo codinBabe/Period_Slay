@@ -18,14 +18,14 @@ export default function Profile() {
     }
   }, []);
   useEffect(() => {
-    fetch("/blog").then((res) => {
+    fetch("https://period-slay.onrender.com/blog").then((res) => {
       res.json().then((blog) => setBlog(blog));
     });
   }, []);
 
   async function fetchUserDetails() {
     try {
-      const response = await fetch("/user", {
+      const response = await fetch("https://period-slay.onrender.com/user", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -58,7 +58,7 @@ export default function Profile() {
 
   async function handleDeleteAccount() {
     try {
-      const response = await fetch("/user", {
+      const response = await fetch("https://period-slay.onrender.com/user", {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
