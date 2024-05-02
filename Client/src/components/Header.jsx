@@ -49,7 +49,9 @@ export default function Header() {
             </li>
             <li>
               <Link
-                className={location.pathname === "/contact" ? "active" : ""}
+                className={
+                  location.pathname.includes("/contact") ? "active" : ""
+                }
                 to="/contact"
               >
                 Contact

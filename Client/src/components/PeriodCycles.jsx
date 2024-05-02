@@ -3,7 +3,7 @@ import React from "react";
 export default function PeriodCycles({ periodData }) {
   function calculateNextSixCycles(periodData) {
     const cycles = [];
-    periodData.forEach((data) => {
+    periodData?.forEach((data) => {
       const firstDayLastPeriod = new Date(data.lastPeriodDate);
       const averageCycleLength = data.periodCycle;
 
@@ -65,9 +65,9 @@ export default function PeriodCycles({ periodData }) {
               key={index}
               className="flex items-center justify-between text-primary500 border-b-2 border-primary500 p-5"
             >
-              <p>{cycle.periodDate}</p>
-              <p>{cycle.ovulationDate}</p>
-              <p>{cycle.safeWindow2}</p>
+              <p>{cycle?.periodDate}</p>
+              <p>{cycle?.ovulationDate}</p>
+              <p>{cycle?.safeWindow2}</p>
             </div>
           ))}
         </div>

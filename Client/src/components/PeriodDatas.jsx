@@ -48,28 +48,29 @@ export default function PeriodDatas({ periodData }) {
         <div className="flex flex-col gap-1 ml-6 mb-6">
           <h3 className="font-DmSerif">Next Period Date</h3>
           <p>
-            {periodData.length > 0 && formatDate(periodData[0].nextPeriodDate)}
+            {periodData?.length > 0 &&
+              formatDate(periodData[0]?.nextPeriodDate)}
           </p>
         </div>
         <div className="flex flex-col gap-1 mr-6 mb-6">
           <div className="flex items-center gap-2">
             <h3>Last Period date:</h3>
             <p>
-              {periodData.length > 0 &&
-                formatDate(periodData[0].lastPeriodDate)}
+              {periodData?.length > 0 &&
+                formatDate(periodData[0]?.lastPeriodDate)}
             </p>
           </div>
           <div className="flex items-center gap-2">
             <h3>Cycle Length:</h3>
-            <p>{periodData.length > 0 && periodData[0].periodCycle}</p>
+            <p>{periodData?.length > 0 && periodData[0]?.periodCycle}</p>
           </div>
         </div>
       </div>
       <div className="grid grid-cols-3 gap-5">
         <PeriodInfoCard
           date={
-            periodData.length > 0 &&
-            calculatePeriodRanges(periodData[0].ovulationDate).fertileWindow
+            periodData?.length > 0 &&
+            calculatePeriodRanges(periodData[0]?.ovulationDate).fertileWindow
           }
           type={"Fertile Window"}
         >
@@ -79,7 +80,7 @@ export default function PeriodDatas({ periodData }) {
         </PeriodInfoCard>
         <PeriodInfoCard
           date={`${
-            periodData.length > 0 && formatDate(periodData[0].ovulationDate)
+            periodData?.length > 0 && formatDate(periodData[0]?.ovulationDate)
           }`}
           type={"Ovulation Date"}
         >
@@ -89,7 +90,7 @@ export default function PeriodDatas({ periodData }) {
         </PeriodInfoCard>
         <PeriodInfoCard
           date={`${
-            periodData.length > 0 && formatDate(periodData[0].nextPeriodDate)
+            periodData?.length > 0 && formatDate(periodData[0]?.nextPeriodDate)
           }`}
           type={"Next Period Date"}
         >
@@ -99,8 +100,8 @@ export default function PeriodDatas({ periodData }) {
         </PeriodInfoCard>
         <PeriodInfoCard
           date={
-            periodData.length > 0 &&
-            calculatePeriodRanges(periodData[0].ovulationDate).safeWindow2
+            periodData?.length > 0 &&
+            calculatePeriodRanges(periodData[0]?.ovulationDate).safeWindow2
           }
           type={"Safe Period"}
         >
@@ -111,7 +112,7 @@ export default function PeriodDatas({ periodData }) {
         <PeriodInfoCard
           date={
             periodData.length > 0 &&
-            calculatePeriodRanges(periodData[0].ovulationDate).fertileWindow
+            calculatePeriodRanges(periodData[0]?.ovulationDate).fertileWindow
           }
           type={"Fertile Window"}
         >
@@ -122,7 +123,7 @@ export default function PeriodDatas({ periodData }) {
         <PeriodInfoCard
           date={
             periodData.length > 0 &&
-            calculatePeriodRanges(periodData[0].ovulationDate).fertileWindow
+            calculatePeriodRanges(periodData[0]?.ovulationDate).fertileWindow
           }
           type={"Fertile Window"}
         >

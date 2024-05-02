@@ -14,6 +14,8 @@ import EditUser from "./pages/UserEdit";
 import TrackerCalculator from "./pages/Calculate";
 import PeriodInfo from "./pages/PeriodInfo";
 import ForgotPassword from "./pages/ForgetPassword";
+import Support from "./pages/Support";
+import Faq from "./pages/Faq";
 const isAuthenticated = () => {
   const token = localStorage.getItem("token");
   return !!token;
@@ -35,6 +37,10 @@ let router = createBrowserRouter([
   {
     path: "/forget",
     element: <ForgotPassword />,
+  },
+  {
+    path: "/faq",
+    element: <Faq />,
   },
   {
     path: "/profile",
@@ -75,6 +81,10 @@ let router = createBrowserRouter([
   {
     path: "/contact",
     element: isAuthenticated() ? <Contact /> : <Home />,
+  },
+  {
+    path: "/support",
+    element: isAuthenticated() ? <Support /> : <Home />,
   },
 ]);
 export default function App() {

@@ -10,7 +10,7 @@ export default function PeriodInfo() {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    fetch("/calculate", {
+    fetch("https://period-slay.onrender.com/calculate", {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -25,25 +25,8 @@ export default function PeriodInfo() {
       .catch((error) => console.error("Error fetching period data:", error));
   }, []);
 
-  async function handleRecalculate() {
-    try {
-      const response = await fetch(
-        "https://period-slay.onrender.com/calculate",
-        {
-          method: "DELETE",
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-          },
-        }
-      );
-      if (response.ok) {
-        window.location = "/tracker/calculate";
-      } else {
-        console.log("error", response);
-      }
-    } catch (err) {
-      console.error("Error recalculating next cycle:", err);
-    }
+  function handleRecalculate() {
+    window.location = "/calculate";
   }
   return (
     <>

@@ -32,7 +32,7 @@ export default function Blog() {
       <Header />
       <main>
         <section className="bg-primary500 text-white">
-          <div className="container mx-auto px-8 py-8 md:py-28 md:px-0">
+          <div className="w-[90%] mx-auto px-8 py-8 md:py-28 md:px-0">
             <div className="md:w-[974px] md:h-[146px]">
               <h1 className="font-DmSerif text-[32px] mb-5">
                 Discover Health and Wellness

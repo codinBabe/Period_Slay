@@ -40,7 +40,7 @@ export default function Login() {
     <>
       <Header />
       <main className="bg-primary50 relative">
-        <div className="container mx-auto py-20 relative">
+        <div className="w-[90%] mx-auto py-20 relative">
           <div className="max-w-3xl w-[40%] px-4 relative z-10">
             <div className="bg-white rounded-xl p-12 shadow-2xl transform translate-x-[110%]">
               <h1 className="font-DmSerif text-6xl text-center">Log In</h1>
@@ -119,7 +119,7 @@ export default function Login() {
               <img
                 src={UterusFull}
                 alt="placeholder"
-                className="mt-[-60px] ml-[-15px] h-[300px] w-[300px]"
+                className="mt-[-60px] ml-[-15px] h-[310px] w-[310px]"
               />
             </div>
           </div>

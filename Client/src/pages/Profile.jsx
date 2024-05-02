@@ -80,7 +80,7 @@ export default function Profile() {
     <>
       <Header />
       <main>
-        <div className="container mx-auto py-10">
+        <div className="w-[90%] mx-auto py-10">
           <div className="flex items-start gap-10">
             <div className="w-[210px] h-[340px] bg-white shadow-lg">
               <div className="flex flex-col items-start gap-4 text-xl">

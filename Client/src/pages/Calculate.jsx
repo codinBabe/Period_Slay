@@ -7,14 +7,11 @@ export default function TrackerCalculator() {
   const [firstDayLastPeriod, setFirstDayLastPeriod] = useState("");
   const [averageCycleLength, setAverageCycleLength] = useState("");
   const [lastPeriodDuration, setLastPeriodDuration] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  function handleReset() {
-    setFirstDayLastPeriod("");
-    setAverageCycleLength("");
-    setLastPeriodDuration("");
-  }
   async function handleSubmit(e) {
     e.preventDefault();
+    setIsSubmitting(true);
     if (averageCycleLength < 21 || averageCycleLength > 35) {
       alert("Average cycle length should be between 21 and 35 days.");
       return;
@@ -42,7 +39,7 @@ export default function TrackerCalculator() {
       );
       if (response.status === 409) {
         alert(
-          "You have already filled the form. Click 'Recalculate' to delete previous data."
+          "You have already filled the form. Click 'Reset' to delete previous data."
         );
         return;
       }
@@ -51,8 +48,28 @@ export default function TrackerCalculator() {
       } else {
         console.log("error", response);
       }
+      setIsSubmitting(false);
     } catch (err) {
       console.error("Error calculating next cycle:", err);
+    }
+  }
+  async function handleReset() {
+    try {
+      const response = await fetch(
+        "https://period-slay.onrender.com/calculate",
+        {
+          method: "DELETE",
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
+      if (response.ok) {
+      } else {
+        console.log("error", response);
+      }
+    } catch (err) {
+      console.error("Error recalculating next cycle:", err);
     }
   }
   return (
@@ -80,8 +97,8 @@ export default function TrackerCalculator() {
         </section>
         <section>
           <div className="w-[90%] mx-auto md:px-12 mb-14">
-            <div className="flex flex-col md:flex-row items-start">
-              <div className="md:w-[641px] bg-primary500 text-white p-5 md:p-[41px] flex flex-col gap-8">
+            <div className="w-full h-auto flex flex-col md:flex-row items-start">
+              <div className="md:w-[650px] h-[650px] bg-primary500 text-white p-5 md:p-[41px] flex flex-col gap-8">
                 <h2 className="font-DmSerif text-[36px]">Track Your Period</h2>
                 <form onSubmit={handleSubmit}>
                   <label>
@@ -90,6 +107,7 @@ export default function TrackerCalculator() {
                       type="date"
                       value={firstDayLastPeriod}
                       onChange={(e) => setFirstDayLastPeriod(e.target.value)}
+                      disabled={isSubmitting}
                     />
                   </label>
                   <label>
@@ -99,6 +117,7 @@ export default function TrackerCalculator() {
                       value={averageCycleLength}
                       onChange={(e) => setAverageCycleLength(e.target.value)}
                       placeholder="28 days"
+                      disabled={isSubmitting}
                     />
                   </label>
                   <label>
@@ -108,12 +127,14 @@ export default function TrackerCalculator() {
                       value={lastPeriodDuration}
                       onChange={(e) => setLastPeriodDuration(e.target.value)}
                       placeholder="3 days"
+                      disabled={isSubmitting}
                     />
                   </label>
                   <div className="flex items-center gap-8 mt-10  text-base md:text-lg font-medium">
                     <button
                       className="text-primary500 py-2 px-4 md:py-3 md:px-6 bg-white rounded-md"
                       type="submit"
+                      disabled={isSubmitting}
                     >
                       Proceed to Calculate
                     </button>
@@ -135,7 +156,7 @@ export default function TrackerCalculator() {
                   days or longer.
                 </p>
               </div>
-              <div>
+              <div className="w-[650px] h-[600px]">
                 <img src={Calculate1} alt="placeholder" />
               </div>
             </div>

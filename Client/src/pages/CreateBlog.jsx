@@ -4,7 +4,6 @@ import Footer from "../components/Footer";
 import CreateBlogForm from "../components/CreateBlogForm";
 
 export default function CreateBlog() {
-  const [blog, setBlog] = useState([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -19,8 +18,9 @@ export default function CreateBlog() {
         },
         body: JSON.stringify(blogData),
       });
-      const data = await response.json();
-      setBlog((prevBlogs) => [...prevBlogs, data]);
+      if (response.ok) {
+        window.location = "/blog";
+      }
       setIsSubmitting(false);
       setIsSubmitted(true);
     } catch (error) {

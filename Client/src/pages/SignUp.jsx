@@ -70,7 +70,7 @@ export default function SignUp() {
     <>
       <Header />
       <main className="bg-primary50 relative">
-        <div className="container mx-auto py-20 relative">
+        <div className="w-[90%] mx-auto py-20 relative">
           <div className="max-w-3xl w-[40%] px-4 relative z-10">
             <div className="bg-white rounded-xl p-12 shadow-2xl transform translate-x-[110%]">
               <h1 className="font-DmSerif text-6xl text-center mb-4">
@@ -207,7 +207,7 @@ export default function SignUp() {
               <img
                 src={UterusFull}
                 alt="placeholder"
-                className="mt-[-55px] ml-[-54px] h-[400px] w-[400px]"
+                className="mt-[-55px] ml-[-48px] h-[410px] w-[410px]"
               />
             </div>
           </div>

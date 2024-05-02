@@ -42,7 +42,7 @@ export default function Home() {
 
       <main>
         <section className="hero bg-primary500 text-white">
-          <div className="container mx-auto px-5 py-5 md:px-0 md:py-28">
+          <div className="w-[90%] mx-auto px-5 py-5 md:px-0 md:py-28">
             <div className="text-center md:text-left relative">
               <div className="md:w-[853px] md:h-[299px]">
                 <h1 className="font-DmSerif text-[30px] md:text-[46px] mb-6">
@@ -61,7 +61,7 @@ export default function Home() {
                   Learn More...
                 </Link>
               </div>
-              <div className="hidden md:block absolute right-[-96px] top-[-39%]">
+              <div className="hidden md:block absolute right-[-65px] top-[-39%]">
                 <img
                   src={Womanwithafro}
                   alt="woman with afro hairstyle"

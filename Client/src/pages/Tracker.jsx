@@ -12,7 +12,7 @@ export default function PeriodTracker() {
       <Header />
       <main>
         <section className="bg-primary500 text-white">
-          <div className="container mx-auto py-20 text-center md:text-left">
+          <div className="w-[90%] mx-auto py-20 text-center md:text-left">
             <div className="md:w-[949px] h-[263] flex flex-col gap-5">
               <h1 className="font-DmSerif text-[36px] md:text-[41px]">
                 Track Your Period with Ease and Stay Informed with Period
