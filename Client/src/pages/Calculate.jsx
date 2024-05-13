@@ -22,18 +22,21 @@ export default function TrackerCalculator() {
       return;
     }
     try {
-      const response = await fetch("/calculate", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-        body: JSON.stringify({
-          firstDayLastPeriod,
-          averageCycleLength,
-          lastPeriodDuration,
-        }),
-      });
+      const response = await fetch(
+        "https://period-slay.onrender.com/calculate",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+          body: JSON.stringify({
+            firstDayLastPeriod,
+            averageCycleLength,
+            lastPeriodDuration,
+          }),
+        }
+      );
       if (response.status === 409) {
         alert(
           "You have already filled the form. Click 'Reset' to delete previous data."
@@ -52,12 +55,15 @@ export default function TrackerCalculator() {
   }
   async function handleReset() {
     try {
-      const response = await fetch("/calculate", {
-        method: "DELETE",
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      });
+      const response = await fetch(
+        "https://period-slay.onrender.com/calculate",
+        {
+          method: "DELETE",
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
       if (response.ok) {
         alert(
           "Previous data deleted. You can now refresh and fill the form again"

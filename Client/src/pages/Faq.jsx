@@ -39,6 +39,9 @@ export default function Faq() {
           ))}
         </section>
         <section className="w-[90%] mx-auto my-16">
+          <h2 className="font-DmSerif text-2xl mb-6">
+            Find answers to other common questions about Period Slayer
+          </h2>
           {faqList.map((faq, i) => (
             <div key={i} className="my-8 border-black border-b-2">
               <div className="flex items-center justify-between">

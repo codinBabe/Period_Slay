@@ -10,7 +10,7 @@ export default function ForgotPassword() {
     e.preventDefault();
     setResetInProgress(true);
     try {
-      const response = await fetch("/forget", {
+      const response = await fetch("https://period-slay.onrender.com/forget", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -30,7 +30,14 @@ export default function ForgotPassword() {
     <>
       <Header />
       <main className="bg-primary50 flex flex-col items-center justify-center h-[90vh]">
-        <h1 className="font-DmSerif text-2xl">Forgot Password</h1>
+        <div className="text-center">
+          <h1 className="font-DmSerif text-2xl mb-4">Forgot Password</h1>
+          <p>
+            Forgot your password? No problem. Just let us know your email
+            address and we will email you a password reset link that will allow
+            you to choose a new one.
+          </p>
+        </div>
         <form onSubmit={handlePasswordReset}>
           <label htmlFor="email">
             Email

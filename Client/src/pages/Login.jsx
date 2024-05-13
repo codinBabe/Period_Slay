@@ -24,7 +24,7 @@ export default function Login() {
     e.preventDefault();
     setLoginInProgress(true);
     try {
-      const response = await fetch("/login", {
+      const response = await fetch("https://period-slay.onrender.com/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -137,7 +137,7 @@ export default function Login() {
               route={"/"}
             >
               <p className="font-medium mb-10">Logged in successfully</p>
-              <p>Now let’s explore Period Slayer</p>
+              <p>Now let’s explore Period Slay</p>
             </Notification>
           )}
           {isFail && (

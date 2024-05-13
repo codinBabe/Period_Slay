@@ -14,7 +14,7 @@ export default function BlogPost() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`/blog/${id}`)
+    fetch(`https://period-slay.onrender.com/blog/${id}`)
       .then((res) => res.json())
       .then((post) => {
         setPost(post);

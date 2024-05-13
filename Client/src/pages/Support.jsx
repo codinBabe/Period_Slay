@@ -43,7 +43,7 @@ export default function Support() {
 
   async function fetchUserDetails() {
     try {
-      const response = await fetch("/user", {
+      const response = await fetch("https://period-slay.onrender.com/user", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

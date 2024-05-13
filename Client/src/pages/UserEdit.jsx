@@ -9,7 +9,7 @@ export default function EditUser() {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   useEffect(() => {
-    fetch("/user", {
+    fetch("https://period-slay.onrender.com/user", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -24,7 +24,7 @@ export default function EditUser() {
   async function handleSaveButtonClick(e, data) {
     e.preventDefault();
     setIsUpdating(true);
-    const response = await fetch("/user", {
+    const response = await fetch("https://period-slay.onrender.com/user", {
       method: "PUT",
       body: JSON.stringify(data),
       headers: {
