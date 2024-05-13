@@ -5,15 +5,20 @@ import Slogan from "../components/Slogan";
 import UterusFull from "../assets/UterusFull.png";
 import Google from "../assets/google-login.svg";
 import Facebook from "../assets/facebook-login.svg";
+import SuccessIcon from "../assets/success-icon.png";
+import FailIcon from "../assets/fail-icon.png";
 import Apple from "../assets/apple-login.svg";
 import EyeIcon from "../assets/eyeIcon.svg";
 import EyeSlashIcon from "../assets/eyeSlash.svg";
+import Notification from "../components/Notify";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loginInProgress, setLoginInProgress] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [isFail, setIsFail] = useState(false);
 
   async function handleLogin(e) {
     e.preventDefault();
@@ -29,7 +34,9 @@ export default function Login() {
       if (response.ok) {
         const data = await response.json();
         localStorage.setItem("token", data.token);
-        window.location = "/";
+        setIsSuccess(true);
+      } else {
+        setIsFail(true);
       }
       setLoginInProgress(false);
     } catch (error) {
@@ -123,6 +130,26 @@ export default function Login() {
               />
             </div>
           </div>
+          {isSuccess && (
+            <Notification
+              imgSrc={SuccessIcon}
+              LinkText={"Proceed to Homepage"}
+              route={"/"}
+            >
+              <p className="font-medium mb-10">Logged in successfully</p>
+              <p>Now let’s explore Period Slayer</p>
+            </Notification>
+          )}
+          {isFail && (
+            <Notification
+              imgSrc={FailIcon}
+              LinkText={"Try Again"}
+              route={"/login"}
+            >
+              <p className="font-medium mb-10">Opps!</p>
+              <p>Something went wrong. Please try again.</p>
+            </Notification>
+          )}
         </div>
       </main>
     </>

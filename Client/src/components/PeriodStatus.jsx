@@ -19,7 +19,7 @@ export default function PeriodStatus({ periodData }) {
     }
   }
   return (
-    <section className="text-center font-DmSerif text-[46px] bg-primary500 text-white mb-8 rounded-md p-1">
+    <section className="text-center font-DmSerif text-[36px] md:text-[46px] bg-primary500 text-white mb-8 rounded-md p-1">
       <h1>
         Yayy! You are in your <span>{getCurrentStatus(periodData)}</span> period
       </h1>

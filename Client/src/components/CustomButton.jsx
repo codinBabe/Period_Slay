@@ -35,7 +35,7 @@ export default function CustomButton({
       </button>
       {showConfirmation && (
         <div className="fixed inset-0 z-50 overflow-auto bg-black bg-opacity-60 flex justify-center items-center">
-          <div className="w-[940px] h-[518px] bg-white flex flex-col items-center justify-center gap-10 relative">
+          <div className="w-auto p-8 md:w-[940px] md:h-[518px] md:p-0 bg-white flex flex-col items-center justify-center gap-10 relative">
             <button
               className="absolute top-0 right-0 m-4 cursor-pointer"
               onClick={() => {
@@ -67,7 +67,7 @@ export default function CustomButton({
       )}
       {showSuccessMessage && (
         <div className="fixed inset-0 z-50 overflow-auto bg-black bg-opacity-60 flex justify-center items-center">
-          <div className="w-[940px] h-[518px] flex flex-col items-center justify-center bg-white relative">
+          <div className="w-auto p-8 md:w-[940px] md:h-[518px] md:p-0 flex flex-col items-center justify-center bg-white relative">
             <button
               className="absolute top-0 right-0 m-4 cursor-pointer"
               onClick={() => {

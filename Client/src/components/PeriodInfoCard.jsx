@@ -5,7 +5,7 @@ export default function PeriodInfoCard({ date, type, children }) {
         {date}
       </p>
       <h3 className="text-2xl font-semibold">{type}</h3>
-      <p className="w-[292px] text-base">{children}</p>
+      <p className="md:w-[292px] text-base">{children}</p>
     </div>
   );
 }

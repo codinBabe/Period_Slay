@@ -43,9 +43,9 @@ export default function PeriodDatas({ periodData }) {
   }
 
   return (
-    <section className="bg-primary10 rounded-xl py-12">
-      <div className="flex items-center justify-between text-primary500 font-medium border-b-2 border-primary500 mb-12">
-        <div className="flex flex-col gap-1 ml-6 mb-6">
+    <section className="w-full bg-primary10 rounded-xl py-12">
+      <div className="flex flex-col md:flex-row items-center justify-between text-primary500 font-medium border-b-2 border-primary500 mb-12">
+        <div className="flex flex-col gap-1 md:ml-6 mb-6">
           <h3 className="font-DmSerif">Next Period Date</h3>
           <p>
             {periodData?.length > 0 &&
@@ -66,7 +66,7 @@ export default function PeriodDatas({ periodData }) {
           </div>
         </div>
       </div>
-      <div className="grid grid-cols-3 gap-5">
+      <div className="grid md:grid-cols-3 gap-5">
         <PeriodInfoCard
           date={
             periodData?.length > 0 &&

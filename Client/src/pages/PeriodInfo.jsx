@@ -31,7 +31,7 @@ export default function PeriodInfo() {
   return (
     <>
       <Header />
-      <main className="w-[80%] mx-auto p-10">
+      <main className="w-[90%] mx-auto px-4 py-10 md:px-10">
         <PeriodStatus periodData={periodData} />
         <PeriodDatas periodData={periodData} />
         <PeriodCycles periodData={periodData} />

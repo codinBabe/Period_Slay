@@ -79,8 +79,8 @@ export default function Profile() {
   return (
     <>
       <Header />
-      <main className="w-[90%] mx-auto py-10">
-        <div>
+      <main className="w-[90%] mx-auto py-10 bg-white shadow-lg">
+        <div className="md:w-[90%] mx-auto py-10 md:px-5">
           <div className="flex flex-col md:flex-row items-start gap-10">
             <div className="w-[210px] h-[340px] bg-white shadow-lg">
               <div className="flex flex-col items-start gap-4 text-xl">
