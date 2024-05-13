@@ -30,6 +30,7 @@ export default function Newsletter() {
               placeholder="Your Email here"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              className="text-black"
             />
             <button
               type="submit"
