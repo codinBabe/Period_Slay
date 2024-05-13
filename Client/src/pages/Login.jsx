@@ -19,7 +19,7 @@ export default function Login() {
     e.preventDefault();
     setLoginInProgress(true);
     try {
-      const response = await fetch("https://period-slay.onrender.com/login", {
+      const response = await fetch("/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -41,8 +41,8 @@ export default function Login() {
       <Header />
       <main className="bg-primary50 relative">
         <div className="w-[90%] mx-auto py-20 relative">
-          <div className="max-w-3xl w-[40%] px-4 relative z-10">
-            <div className="bg-white rounded-xl p-12 shadow-2xl transform translate-x-[110%]">
+          <div className="max-w-3xl w-full md:w-[40%] px-4 relative z-10">
+            <div className="bg-white rounded-xl p-8 md:p-12 shadow-2xl transform translate-x-[50] md:translate-x-[110%]">
               <h1 className="font-DmSerif text-6xl text-center">Log In</h1>
               <form className="form" onSubmit={handleLogin}>
                 <div className="mb-6">
@@ -113,7 +113,7 @@ export default function Login() {
               </div>
             </div>
           </div>
-          <div className="absolute top-[13%] left-[34%] transform -translate-x-1/2">
+          <div className="hidden md:block absolute top-[13%] left-[34%] transform -translate-x-1/2">
             <Slogan />
             <div className="relative">
               <img

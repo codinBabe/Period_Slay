@@ -48,7 +48,7 @@ export default function SignUp() {
     e.preventDefault();
     setCreatingUser(true);
     try {
-      const response = await fetch("https://period-slay.onrender.com/signup", {
+      const response = await fetch("/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -71,8 +71,8 @@ export default function SignUp() {
       <Header />
       <main className="bg-primary50 relative">
         <div className="w-[90%] mx-auto py-20 relative">
-          <div className="max-w-3xl w-[40%] px-4 relative z-10">
-            <div className="bg-white rounded-xl p-12 shadow-2xl transform translate-x-[110%]">
+          <div className="max-w-3xl w-full md:w-[40%] px-4 relative z-10">
+            <div className="bg-white rounded-xl p-8 md:p-12 shadow-2xl transform translate-x-[50] md:translate-x-[110%]">
               <h1 className="font-DmSerif text-6xl text-center mb-4">
                 Sign Up
               </h1>
@@ -201,7 +201,7 @@ export default function SignUp() {
               </div>
             </div>
           </div>
-          <div className="absolute top-[12%] left-[33%] transform -translate-x-1/2">
+          <div className="hidden md:block absolute top-[12%] left-[33%] transform -translate-x-1/2">
             <Slogan />
             <div className="relative">
               <img

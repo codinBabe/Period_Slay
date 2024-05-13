@@ -10,7 +10,7 @@ export default function PeriodInfo() {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    fetch("https://period-slay.onrender.com/calculate", {
+    fetch("/calculate", {
       headers: {
         Authorization: `Bearer ${token}`,
       },

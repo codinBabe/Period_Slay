@@ -18,14 +18,14 @@ export default function Profile() {
     }
   }, []);
   useEffect(() => {
-    fetch("https://period-slay.onrender.com/blog").then((res) => {
+    fetch("/blog").then((res) => {
       res.json().then((blog) => setBlog(blog));
     });
   }, []);
 
   async function fetchUserDetails() {
     try {
-      const response = await fetch("https://period-slay.onrender.com/user", {
+      const response = await fetch("/user", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -58,7 +58,7 @@ export default function Profile() {
 
   async function handleDeleteAccount() {
     try {
-      const response = await fetch("https://period-slay.onrender.com/user", {
+      const response = await fetch("/user", {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -79,9 +79,9 @@ export default function Profile() {
   return (
     <>
       <Header />
-      <main>
-        <div className="w-[90%] mx-auto py-10">
-          <div className="flex items-start gap-10">
+      <main className="w-[90%] mx-auto py-10">
+        <div>
+          <div className="flex flex-col md:flex-row items-start gap-10">
             <div className="w-[210px] h-[340px] bg-white shadow-lg">
               <div className="flex flex-col items-start gap-4 text-xl">
                 <button className="focus:bg-primary50 hover:bg-primary50 w-full text-left pl-5 py-5">
@@ -121,11 +121,11 @@ export default function Profile() {
                 </CustomButton>
               </div>
             </div>
-            <div className="grow">
+            <div className="">
               <div className="flex flex-col gap-12">
                 <div>
                   <h2 className="font-medium text-xl mb-4">My Profile</h2>
-                  <div className="bg-primary50 rounded-xl px-5 py-3 shadow-xl w-[915px] h-[160px]">
+                  <div className="bg-primary50 rounded-xl px-5 py-3 shadow-xl w-auto h-auto ">
                     <div className="flex items-center justify-between">
                       <p className="font-medium text-xl">
                         Personal Information
@@ -142,12 +142,12 @@ export default function Profile() {
                     </div>
                     {userDetails && (
                       <div className="flex flex-col justify-center">
-                        <div className="flex items-center gap-40">
+                        <div className="flex items-center md:gap-40">
                           <p className="px-4 py-2">First Name</p>
                           <p className="px-4 py-2">Last Name</p>
                           <p className="px-4 py-2">Email Address</p>
                         </div>
-                        <div className="flex items-center gap-48">
+                        <div className="flex items-center md:gap-48">
                           <p className="px-4 py-2">{userDetails?.firstName}</p>
                           <p className="px-4 py-2">{userDetails?.lastName}</p>
                           <p className="px-4 py-2">{userDetails?.email}</p>
@@ -157,7 +157,7 @@ export default function Profile() {
                   </div>
                 </div>
                 <div>
-                  <div className="bg-primary50 rounded-xl px-5 py-3 shadow-xl w-[915px] h-[243px]">
+                  <div className="bg-primary50 rounded-xl px-5 py-3 shadow-xl w-auto h-auto">
                     <div className="flex items-center justify-between">
                       <p className="font-medium text-xl">My Period</p>
                       <Link
@@ -172,22 +172,22 @@ export default function Profile() {
                     </div>
                     {userDetails && (
                       <div className="flex flex-col justify-center">
-                        <div className="flex items-center gap-40">
+                        <div className="flex items-center md:gap-40">
                           <p className="px-4 py-2">Cycle Length</p>
                           <p className="px-4 py-2">Last Period</p>
                           <p className="px-4 py-2">Weight</p>
                         </div>
-                        <div className="flex items-center gap-48">
+                        <div className="flex items-center md:gap-48">
                           <p className="px-4 py-2">
                             {userDetails?.periodCycle}
                           </p>
                           <p className="px-4 py-2">{userDetails?.lastPeriod}</p>
                           <p className="px-4 py-2">{userDetails?.weight}</p>
                         </div>
-                        <div className="flex items-center gap-40">
+                        <div className="flex items-center md:gap-40">
                           <p className="px-4 py-2">Age</p>
                         </div>
-                        <div className="flex items-center gap-48">
+                        <div className="flex items-center md:gap-48">
                           <p className="px-4 py-2">{userDetails?.age}</p>
                         </div>
                       </div>
@@ -196,15 +196,15 @@ export default function Profile() {
                 </div>
                 <div>
                   <div>
-                    <h2 className="font-medium text-xl mb-4">
+                    <h2 className="font-medium text-xl">
                       Recommended Articles
                     </h2>
-                    <div className="grid grid-cols-4 w-[915px] h-[160px]">
+                    <div className="md:grid grid-cols-4 md:w-[915px] md:h-[160px]">
                       {blog.slice(0, 4).map((item, i) => (
                         <Link
                           to={"/blog/" + item._id}
                           key={i}
-                          className="flex items-center justify-center bg-primary50 rounded-xl px-5 py-3 shadow-xl w-[203px] h-[179px]"
+                          className="mt-6 flex items-center justify-center bg-primary50 rounded-xl px-5 py-3 shadow-xl w-[203px] h-[179px]"
                         >
                           <h2 className="font-medium text-xl">{item.title}</h2>
                         </Link>

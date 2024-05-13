@@ -10,7 +10,7 @@ export default function ForgotPassword() {
     e.preventDefault();
     setResetInProgress(true);
     try {
-      const response = await fetch("https://period-slay.onrender.com/forget", {
+      const response = await fetch("/forget", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

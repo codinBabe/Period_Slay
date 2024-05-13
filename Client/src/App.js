@@ -71,7 +71,7 @@ let router = createBrowserRouter([
     element: isAuthenticated() ? <TrackerCalculator /> : <Home />,
   },
   {
-    path: "/tracker/periods",
+    path: "/tracker/period",
     element: isAuthenticated() ? <PeriodInfo /> : <Home />,
   },
   {

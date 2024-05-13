@@ -14,7 +14,7 @@ export default function BlogPost() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`https://period-slay.onrender.com/blog/${id}`)
+    fetch(`/blog/${id}`)
       .then((res) => res.json())
       .then((post) => {
         setPost(post);
@@ -65,7 +65,7 @@ export default function BlogPost() {
                     <div className="social-icons flex items-center gap-2">
                       <a
                         className="bg-neutralLightest rounded-full w-8 h-8 flex items-center justify-center"
-                        href="#"
+                        href="https://share.in"
                         target="_blank"
                         rel="noreferrer"
                       >
@@ -73,7 +73,7 @@ export default function BlogPost() {
                       </a>
                       <a
                         className="bg-neutralLightest rounded-full w-8 h-8 flex items-center justify-center"
-                        href="#"
+                        href="https://linkedin.com/in"
                         target="_blank"
                         rel="noreferrer"
                       >
@@ -81,7 +81,7 @@ export default function BlogPost() {
                       </a>
                       <a
                         className="bg-neutralLightest rounded-full w-8 h-8 flex items-center justify-center"
-                        href="#"
+                        href="https://twitter.com/"
                         target="_blank"
                         rel="noreferrer"
                       >
@@ -89,7 +89,7 @@ export default function BlogPost() {
                       </a>
                       <a
                         className="bg-neutralLightest rounded-full w-8 h-8 flex items-center justify-center"
-                        href="#"
+                        href="https://facebook.com/"
                         target="_blank"
                         rel="noreferrer"
                       >

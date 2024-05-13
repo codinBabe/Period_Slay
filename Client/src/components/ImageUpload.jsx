@@ -7,13 +7,10 @@ export default function UploadImage({ text, link, setLink }) {
       data.append("file", files[0]);
 
       try {
-        const response = await fetch(
-          "https://period-slay.onrender.com/upload",
-          {
-            method: "POST",
-            body: data,
-          }
-        );
+        const response = await fetch("/upload", {
+          method: "POST",
+          body: data,
+        });
 
         if (!response.ok) {
           throw new Error("Something went wrong");

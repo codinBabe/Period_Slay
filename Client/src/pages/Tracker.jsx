@@ -29,7 +29,7 @@ export default function PeriodTracker() {
             </div>
           </div>
         </section>
-        <section className="p-20">
+        <section className="w-[90%] mx-auto mt-20">
           <div className="flex flex-col items-center justify-between md:flex-row">
             <div className="md:w-[624px] flex flex-col gap-6">
               <h2 className="font-DmSerif text-[41px]">
@@ -59,7 +59,7 @@ export default function PeriodTracker() {
                 </div>
               </div>
               <Link
-                className="self-start text-lg bg-primary500 py-4 px-8 rounded-md font-medium text-white"
+                className="self-start text-lg bg-primary500 py-4 px-8 rounded-md font-medium text-white mb-5"
                 to="/tracker/calculate"
               >
                 Explore Now
@@ -70,7 +70,7 @@ export default function PeriodTracker() {
             </div>
           </div>
         </section>
-        <section className="p-20">
+        <section className="w-[90%] mx-auto my-12">
           <div>
             <div className="flex flex-col md:flex-row items-center justify-between mb-10">
               <h2 className="md:w-[596px] font-DmSerif text-[46px]">
@@ -89,7 +89,7 @@ export default function PeriodTracker() {
                 </Link>
               </div>
             </div>
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col md:flex-row items-center justify-between">
               <div className="left">
                 <img src={Tracker2} alt="placeholder" />
               </div>
@@ -131,7 +131,7 @@ export default function PeriodTracker() {
             </div>
           </div>
         </section>
-        <section className="p-20">
+        <section className="w-[90%] mx-auto mb-20">
           <h2 className="text-center bg-primary500 font-DmSerif text-[41px] text-white p-5">
             Menstrual Cycle Phases
           </h2>

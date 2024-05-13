@@ -22,21 +22,18 @@ export default function TrackerCalculator() {
       return;
     }
     try {
-      const response = await fetch(
-        "https://period-slay.onrender.com/calculate",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-          },
-          body: JSON.stringify({
-            firstDayLastPeriod,
-            averageCycleLength,
-            lastPeriodDuration,
-          }),
-        }
-      );
+      const response = await fetch("/calculate", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+        body: JSON.stringify({
+          firstDayLastPeriod,
+          averageCycleLength,
+          lastPeriodDuration,
+        }),
+      });
       if (response.status === 409) {
         alert(
           "You have already filled the form. Click 'Reset' to delete previous data."
@@ -44,7 +41,7 @@ export default function TrackerCalculator() {
         return;
       }
       if (response.ok) {
-        window.location = "/tracker/periods";
+        window.location = "/tracker/period";
       } else {
         console.log("error", response);
       }
@@ -55,17 +52,16 @@ export default function TrackerCalculator() {
   }
   async function handleReset() {
     try {
-      const response = await fetch(
-        "https://period-slay.onrender.com/calculate",
-        {
-          method: "DELETE",
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-          },
-        }
-      );
+      const response = await fetch("/calculate", {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      });
       if (response.ok) {
-        alert("Previous deleted. You can now refresh and fill the form again");
+        alert(
+          "Previous data deleted. You can now refresh and fill the form again"
+        );
       } else {
         console.log("error", response);
       }
@@ -157,7 +153,7 @@ export default function TrackerCalculator() {
                   days or longer.
                 </p>
               </div>
-              <div className="w-[650px] h-[600px]">
+              <div className="">
                 <img src={Calculate1} alt="placeholder" />
               </div>
             </div>
