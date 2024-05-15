@@ -19,9 +19,13 @@ export default function About() {
         <section>
           <div className="relative">
             <div>
-              <img src={AboutImage} alt="placeholder" />
+              <img
+                src={AboutImage}
+                alt="placeholder"
+                className="w-full h-full"
+              />
             </div>
-            <h1 className="font-DmSerif text-primary500 md:text-[52px] md:w-[478px] w-[60%] absolute top-[20px] md:top-[120px] md:left-[100px] left-[10px]">
+            <h1 className="font-DmSerif text-primary500 md:text-[52px] md:w-[478px] w-[50%] absolute top-[20px] md:top-[120px] md:left-[100px] left-[15px]">
               Learn About Period Slayer's Mission and Impact.
             </h1>
           </div>

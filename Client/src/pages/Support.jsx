@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import Submit from "../assets/submit-icon.svg";
+import { Link } from "react-router-dom";
 
 export default function Support() {
   const [userInput, setUserInput] = useState("");
@@ -67,57 +68,44 @@ export default function Support() {
     const newUserMessage = { sender: "user", message: userInput };
     let newConversation = [...conversation, newUserMessage];
     setUserInput("");
-
-    if (!optionSelected && !isNaN(userInput)) {
-      setOptionSelected(true);
-      return;
-    }
-
-    if (!optionSelected) {
-      const optionsMessage = `Hello ${firstName}, please select one option:\n${options
-        .map((option, index) => `${index + 1}. ${option}`)
-        .join("\n")}`;
-      newConversation = [
-        ...newConversation,
-        {
-          sender: "bot",
-          message: optionsMessage,
-        },
-      ];
-      setConversation(newConversation);
-      return;
-    }
+    setOptionSelected(true);
 
     if (!isNaN(userInput)) {
       const optionIndex = parseInt(userInput);
-      if (optionIndex === 1 || optionIndex === 3) {
-        newConversation = [
-          ...newConversation,
-          {
-            sender: "bot",
-            message: `You will be redirected to our blog page, to learn more.`,
-          },
-        ];
-        setTimeout(() => {
-          return newConversation;
-        }, 5000 * 5000);
-        window.location = "/blog";
-      } else if (optionIndex === 2) {
-        newConversation = [
-          ...newConversation,
-          {
-            sender: "bot",
-            message: `Your cycle length is ${periodycle} days.`,
-          },
-        ];
-      } else if (optionIndex === 4) {
-        newConversation = [
-          ...newConversation,
-          {
-            sender: "bot",
-            message: `${getGreeting()} ${firstName}, How may I help you?\n-Angela`,
-          },
-        ];
+      if (optionIndex >= 1 && optionIndex <= options.length) {
+        if (optionIndex === 1 || optionIndex === 3) {
+          newConversation = [
+            ...newConversation,
+            {
+              sender: "bot",
+              message: (
+                <>
+                  Visit our blog page to learn more about this conversation{" "}
+                  <Link className="font-semibold underline" to="/blog">
+                    here
+                  </Link>
+                  .
+                </>
+              ),
+            },
+          ];
+        } else if (optionIndex === 2) {
+          newConversation = [
+            ...newConversation,
+            {
+              sender: "bot",
+              message: `Your cycle length is ${periodycle} days.`,
+            },
+          ];
+        } else {
+          newConversation = [
+            ...newConversation,
+            {
+              sender: "bot",
+              message: `${getGreeting()} ${firstName}, How may I help you?\n-Angela`,
+            },
+          ];
+        }
       } else {
         newConversation = [
           ...newConversation,
@@ -129,7 +117,17 @@ export default function Support() {
           },
         ];
       }
-      setOptionSelected(true);
+    } else {
+      const optionsMessage = `Hello ${firstName}, please select one option:\n${options
+        .map((option, index) => `${index + 1}. ${option}`)
+        .join("\n")}`;
+      newConversation = [
+        ...newConversation,
+        {
+          sender: "bot",
+          message: optionsMessage,
+        },
+      ];
     }
 
     setConversation(newConversation);
@@ -161,12 +159,14 @@ export default function Support() {
                       : "rounded-tl-none"
                   } p-6`}
                 >
-                  {msg.message.split("\n").map((line, i) => (
-                    <span key={i}>
-                      {line}
-                      <br />
-                    </span>
-                  ))}
+                  {msg.message && typeof msg.message === "string"
+                    ? msg.message.split("\n").map((line, i) => (
+                        <span key={i}>
+                          {line}
+                          <br />
+                        </span>
+                      ))
+                    : msg.message}
                 </p>
                 <div className="w-[60px] h-[60px] rounded-full bg-primary10"></div>
               </div>

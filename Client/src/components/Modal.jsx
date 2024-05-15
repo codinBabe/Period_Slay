@@ -30,7 +30,7 @@ export default function MyModal({ isOpen, closeModal, isAuthenticated }) {
                 </p>
                 <p className="font-semibold text-white text-sm md:text-xl">
                   Click{" "}
-                  <Link className="text-primary200" to="/tracker">
+                  <Link className="text-primary200" to="/tracker/calculate">
                     here
                   </Link>{" "}
                   to find out

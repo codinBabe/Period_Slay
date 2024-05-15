@@ -79,29 +79,27 @@ export default function TrackerCalculator() {
     <>
       <Header />
       <main>
-        <section>
-          <div className="w-[90%] mx-auto p-10">
-            <div className="flex flex-col md:flex-row items-center gap-10">
-              <div>
-                <img src={Calculate2} alt="placeholder" />
-              </div>
-              <div className="md:w-[620px]">
-                <h1 className="font-DmSerif text-[36px] md:text-[52px] mb-5">
-                  Period Tracker & Calculator
-                </h1>
-                <p className="text-xl">
-                  Take Charge of Your Menstrual Health with Period Slayer's
-                  Innovative Tracker and Calculator. Stay Informed, Plan Ahead,
-                  and Empower Yourself Every Step of the Way!
-                </p>
-              </div>
+        <section className="w-[90%] mx-auto p-12">
+          <div className="flex flex-col md:flex-row items-center gap-10">
+            <div>
+              <img src={Calculate2} alt="placeholder" />
+            </div>
+            <div className="md:w-[620px]">
+              <h1 className="font-DmSerif text-[36px] md:text-[52px] mb-5">
+                Period Tracker & Calculator
+              </h1>
+              <p className="text-xl">
+                Take Charge of Your Menstrual Health with Period Slayer's
+                Innovative Tracker and Calculator. Stay Informed, Plan Ahead,
+                and Empower Yourself Every Step of the Way!
+              </p>
             </div>
           </div>
         </section>
         <section>
           <div className="w-[90%] mx-auto md:px-12 mb-14">
-            <div className="w-full h-auto flex flex-col md:flex-row items-start">
-              <div className="md:w-[650px] h-[650px] bg-primary500 text-white p-5 md:p-[41px] flex flex-col gap-8">
+            <div className="w-full h-full flex flex-col md:flex-row items-start">
+              <div className="w-full h-full bg-primary500 text-white p-5 md:p-[41px] flex flex-col gap-8">
                 <h2 className="font-DmSerif text-[36px]">Track Your Period</h2>
                 <form onSubmit={handleSubmit}>
                   <label>
@@ -159,7 +157,7 @@ export default function TrackerCalculator() {
                   days or longer.
                 </p>
               </div>
-              <div className="">
+              <div className="h-full w-full">
                 <img src={Calculate1} alt="placeholder" />
               </div>
             </div>

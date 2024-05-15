@@ -47,28 +47,25 @@ export default function Blog() {
             </div>
           </div>
         </section>
-        <section>
-          <div className="w-[90%] mx-auto py-28">
-            <Slider autoplay={true} autoplaySpeed={5000} speed={1000}>
-              {blog.map((item, i) => (
-                <div key={i}>
-                  <BlogThumb
-                    poster={item.poster}
-                    time={"5 min read"}
-                    category={item.categories}
-                    topic={item.topic}
-                    introduction={item.introduction.substring(
-                      0,
-                      item.introduction.indexOf(".") + 1
-                    )}
-                    link={"/blog/" + item._id}
-                  />
-                </div>
-              ))}
-            </Slider>
-          </div>
+        <section className="w-[90%] mx-auto mt-16 md:my-20">
+          <Slider autoplay={true} autoplaySpeed={5000} speed={1000}>
+            {blog.map((item, i) => (
+              <div key={i}>
+                <BlogThumb
+                  poster={item.poster}
+                  time={"5 min read"}
+                  category={item.categories}
+                  topic={item.topic}
+                  introduction={item.introduction.substring(
+                    0,
+                    item.introduction.indexOf(".") + 1
+                  )}
+                  link={"/blog/" + item._id}
+                />
+              </div>
+            ))}
+          </Slider>
         </section>
-
         <section>
           <div className="w-[90%] mx-auto my-8">
             <div className="mb-2">

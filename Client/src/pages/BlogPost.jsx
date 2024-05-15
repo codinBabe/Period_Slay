@@ -14,7 +14,7 @@ export default function BlogPost() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`https://period-slay.onrender.com/blog/${id}`)
+    fetch(`/blog/${id}`)
       .then((res) => res.json())
       .then((post) => {
         setPost(post);
@@ -99,7 +99,7 @@ export default function BlogPost() {
                   </div>
                 </div>
                 <div className="content-section flex flex-col md:flex-row justify-center my-20">
-                  <div className="left md:w-[320px] mr-8">
+                  <div className="left mb-5 md:mb-0 md:w-[320px] mr-8">
                     <h2 className="font-DmSerif text-primary500 text-[32px]">
                       Contents
                     </h2>
@@ -128,7 +128,10 @@ export default function BlogPost() {
                       {post.topic}
                     </h2>
                     <div>
-                      <h3 className="font-medium text-[26px] mt-10 mb-5">
+                      <h3
+                        id="introduction"
+                        className="font-medium text-[26px] mt-10 mb-5"
+                      >
                         Introduction
                       </h3>
                       <div>

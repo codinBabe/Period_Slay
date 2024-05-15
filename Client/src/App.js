@@ -16,12 +16,17 @@ import PeriodInfo from "./pages/PeriodInfo";
 import ForgotPassword from "./pages/ForgetPassword";
 import Support from "./pages/Support";
 import Faq from "./pages/Faq";
+
 const isAuthenticated = () => {
   const token = localStorage.getItem("token");
   return !!token;
 };
 
-let router = createBrowserRouter([
+const ProtectedRoute = ({ element: Element, path }) => {
+  return isAuthenticated() ? <Element /> : <Login />;
+};
+
+const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
@@ -44,49 +49,50 @@ let router = createBrowserRouter([
   },
   {
     path: "/profile",
-    element: isAuthenticated() ? <Profile /> : <Home />,
+    element: <ProtectedRoute element={Profile} />,
   },
   {
     path: "/profile/edit",
-    element: isAuthenticated() ? <EditUser /> : <Home />,
+    element: <ProtectedRoute element={EditUser} />,
   },
   {
     path: "/blog",
-    element: isAuthenticated() ? <Blog /> : <Home />,
+    element: <ProtectedRoute element={Blog} />,
   },
   {
     path: "/blog/new",
-    element: isAuthenticated() ? <CreateBlog /> : <Home />,
+    element: <ProtectedRoute element={CreateBlog} />,
   },
   {
     path: "/blog/:id",
-    element: isAuthenticated() ? <BlogPost /> : <Home />,
+    element: <ProtectedRoute element={BlogPost} />,
   },
   {
     path: "/tracker",
-    element: isAuthenticated() ? <PeriodTracker /> : <Home />,
+    element: <ProtectedRoute element={PeriodTracker} />,
   },
   {
     path: "/tracker/calculate",
-    element: isAuthenticated() ? <TrackerCalculator /> : <Home />,
+    element: <ProtectedRoute element={TrackerCalculator} />,
   },
   {
     path: "/tracker/period",
-    element: isAuthenticated() ? <PeriodInfo /> : <Home />,
+    element: <ProtectedRoute element={PeriodInfo} />,
   },
   {
     path: "/about",
-    element: isAuthenticated() ? <About /> : <Home />,
+    element: <ProtectedRoute element={About} />,
   },
   {
     path: "/contact",
-    element: isAuthenticated() ? <Contact /> : <Home />,
+    element: <ProtectedRoute element={Contact} />,
   },
   {
     path: "/contact/support",
-    element: isAuthenticated() ? <Support /> : <Home />,
+    element: <ProtectedRoute element={Support} />,
   },
 ]);
+
 export default function App() {
   return (
     <>

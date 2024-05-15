@@ -24,7 +24,7 @@ export default function InfoSection() {
             <div className="link">
               <Link
                 className="font-DmSerif text-2xl text-primary500"
-                to={"/tracker"}
+                to={"/tracker/calculate"}
               >
                 Track Your Period Easily
               </Link>
