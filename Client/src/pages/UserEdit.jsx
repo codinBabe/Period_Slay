@@ -46,7 +46,7 @@ export default function EditUser() {
   return (
     <>
       <Header />
-      <main className="w-[90%] mx-auto my-10">
+      <main className="w-[90%] md:max-w-md mx-auto my-10">
         <div className="bg-primary50 px-6 py-3 rounded-md">
           {isUpdating ? (
             <p>Loading...</p>

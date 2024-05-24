@@ -40,23 +40,24 @@ const faqList = [
   {
     question: "Is Period Slayer free to use?",
     answer:
-      "Yes, period is free to use and available for use by others to use and manage your menstrual health and hygene",
+      "Yes, Period Slayer is free to use and available for everyone to manage their menstrual health and hygiene.",
   },
   {
     question: "Is my data secure on Period Slayer?",
     answer:
-      "we take your privacy seriously. All data is secure on Period donations and can be used safely on Period donations and can be used safely on Period donations and can be used safely on Period donations and can be used safely on Period donations and can be used safely on Period donations and",
+      "Yes, we take your privacy seriously. All data on Period Slayer is securely stored and can be used safely.",
   },
   {
     question: "What kind of educational resources does Period Slayer provide?",
     answer:
-      "we take your privacy seriously. All data is secure on Period donations and can be used safely on Period donations and can be used safely on Period donations and can be used safely on Period donations and can be used safely on Period donations and can be used safely on Period donations and can be used safely on Period donations and can be used safely on Period donations and can be used safely on Period donations and can be used safely on Period donations",
+      "Period Slayer provides a variety of educational resources on menstrual health, hygiene, and related topics. These resources are aimed at promoting awareness and understanding of menstrual health issues.",
   },
   {
     question:
       "Can I share my period tracking data with my healthcare provider?",
     answer:
-      "we take your privacy seriously. All data is secure on Period donations and can be used safely on Period donations and can be used safely on Period donations and can be used safely on Period donations and can be used safely on Period donations and can be used safely on Period donations and can be used safely on Period donations and can be used safely on Period donations and can be used safely on Period donations and can be used safely on Period donations",
+      "Yes, you can share your period tracking data with your healthcare provider. Period Slayer allows you to export your data in a format that can be easily shared with healthcare professionals.",
   },
 ];
+
 export { faqList, faqs };

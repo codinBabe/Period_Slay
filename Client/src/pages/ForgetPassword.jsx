@@ -32,7 +32,7 @@ export default function ForgotPassword() {
       <main className="bg-primary50 flex flex-col items-center justify-center h-[90vh]">
         <div className="text-center">
           <h1 className="font-DmSerif text-2xl mb-4">Forgot Password</h1>
-          <p>
+          <p className="md:max-w-md">
             Forgot your password? No problem. Just let us know your email
             address and we will email you a password reset link that will allow
             you to choose a new one.

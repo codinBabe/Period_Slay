@@ -222,7 +222,14 @@ export default function SignUp() {
             </Notification>
           )}
           {isFail && (
-            <Notification imgSrc={FailIcon} LinkText={"Try Again"} route={"/"}>
+            <Notification
+              imgSrc={FailIcon}
+              LinkText={"Try Again"}
+              onClick={() => {
+                setIsFail(false);
+                window.location.reload();
+              }}
+            >
               <p className="font-medium mb-10">Opps!</p>
               <p>Something went wrong. Please try again.</p>
             </Notification>

@@ -34,7 +34,7 @@ export default function Newsletter() {
             />
             <button
               type="submit"
-              className="w-1/2 py-2 px-8 text-lg font-medium bg-black rounded-md"
+              className="w-1/2 py-2 px-8 text-lg font-medium bg-black rounded-md whitespace-nowrap"
             >
               Get Updates
             </button>
