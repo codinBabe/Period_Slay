@@ -1,100 +1,55 @@
-# Getting Started with Period Slay App
+## Background
 
 Period Slayer is simple yet profound app, aim to eradicate menstrual poverty, promote menstrual health education, and advocate for menstrual equity worldwide. We're committed to ensuring that no one ever has to choose between their health and other basic necessities.
+[explore here!](https://period-slay.vercel.app/)
 
-## Instructions for collaborators
-Follow these steps to contribute to the project:
+## Architecture
 
-- Clone the Repository:
-After being added as collaborator, clone this repository to your local machine. You can do this using the following command in your terminal:
+Monolith MongoDB
 
-`git clone <your-fork-url>`
+## Project folder structure
 
-- Create a Branch:
-Create a new branch with your name. 
-You can create a new branch like this:
+root: This is the main directory of your project.
 
-`git checkout -b YourName`
+client: This directory contains all the frontend code written in React. It includes subdirectories such as public, which holds static assets, and src, where the actual React components, pages, and other source files reside. The package.json file manages dependencies for the client-side code, and README.md may contain instructions specific to the client-side development.
 
-- Install dependencies:
-Run `npm install` to install all dependencies
+server: This directory contains all the backend code written in Node.js and Express. It includes subdirectories such as db/models, middlewares, and routes, which organize different aspects of the backend application. The index.js file starts the server, package.json manages dependencies, and README.md may contain instructions specific to the server-side development.
 
-- Implement the Design:
-Use the Figma file provided in the link to implement the design. Make sure to refer to the design and use it as a guideline for your implementation.
+README.md: This file provides general information and instructions about the project. It may include details about how to set up and run the project, how to contribute, project structure, and other relevant information.
 
-- Commit and Push:
-Once you've implemented the design, commit your changes to your branch. It's a good practice to commit frequently to save your progress. Remember to use a descriptive commit message.
+## Technologies used
 
-`git add .
-git commit -m "Implemented header navigation design changes"
-git push origin YourName`
+- Html
+- TailwindCSS
+- Javascript
+- ReactJs
+- NodeJs
+- ExpressJs/Router
+- Api
+- Figma
+- MongoDb
+- Git
 
-- Create a Pull Request (PR):
-After committing your changes, go to the GitHub repository, and you should see a prompt to create a pull request. Click on it, provide a descriptive title and details about your changes, and create the PR.
+## Period Slay processes
 
-## Available Scripts
+- User can access the site
+- User can signup and login
+- Authenticated user can access the site and learn more about their menstrual health and hygiene.
+- Costumize and editable User Profile
+- Community forum for answering basic questions and chatting with agents
+- Blog/image Upload route which will later be accessible to registered authors only
 
-In the project directory, you can run:
+## Future Implementations
 
-### `npm start`
+- User can decide to become an author, he/she would be required to fill the write-for-us page and include samples of articles
+- Third party signup and login(Google, Facebook, Apple)
+- 404 page
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Contributors:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- [Oluwatoyin Oredein](https://github.com/codinBabe)
+- [Oluwatomisin Okeke](https://github.com/Ugegbe-oyibo)
 
-### `npm test`
+## Project status
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**_in-progress_**
