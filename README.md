@@ -32,10 +32,11 @@ README.md: This file provides general information and instructions about the pro
 
 ## Period Slay processes
 
-- User can access the site
+- User can only access the homepage until authenticated.
 - User can signup and login
-- Authenticated user can access the site and learn more about their menstrual health and hygiene.
-- Costumize and editable User Profile
+- User can access the blog page to learn more about their menstrual health and hygiene.
+- Customize and editable User Profile
+- User can access the period tracker, calculate their possible ovulation, fertile and safe period and a future prediction of the next 6 months cycle.
 - Community forum for answering basic questions and chatting with agents
 - Blog/image Upload route which will later be accessible to registered authors only
 
