@@ -9,9 +9,9 @@ Monolith MongoDB
 
 ## Project folder structure
 
-root: This is the main directory of your project.
+root: This is the main directory of the project.
 
-client: This directory contains all the frontend code written in React. It includes subdirectories such as public, which holds static assets, and src, where the actual React components, pages, and other source files reside. The package.json file manages dependencies for the client-side code, and README.md may contain instructions specific to the client-side development.
+client: This directory contains all the frontend code written in React. It includes subdirectories such as public, which holds static assets, and src, where the actual React components, pages, and other source files reside(assets). The package.json file manages dependencies for the client-side code, and README.md may contain instructions specific to the client-side development.
 
 server: This directory contains all the backend code written in Node.js and Express. It includes subdirectories such as db/models, middlewares, and routes, which organize different aspects of the backend application. The index.js file starts the server, package.json manages dependencies, and README.md may contain instructions specific to the server-side development.
 
@@ -20,6 +20,7 @@ README.md: This file provides general information and instructions about the pro
 ## Technologies used
 
 - Html
+- CSS
 - TailwindCSS
 - Javascript
 - ReactJs
