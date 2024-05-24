@@ -35,6 +35,7 @@ README.md: This file provides general information and instructions about the pro
 
 - User can only access the homepage until authenticated.
 - User can signup and login
+- User can logout and also delete their account
 - User can access the blog page to learn more about their menstrual health and hygiene.
 - Customize and editable User Profile
 - User can access the period tracker, calculate their possible ovulation, fertile and safe period and a future prediction of the next 6 months cycle.
@@ -46,6 +47,7 @@ README.md: This file provides general information and instructions about the pro
 - User can decide to become an author, he/she would be required to fill the write-for-us page and include samples of articles
 - Third party signup and login(Google, Facebook, Apple)
 - 404 page
+- User get notification popup for new blog update or update of live happening in the community forum.
 
 ## Contributors:
 
