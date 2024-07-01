@@ -16,6 +16,7 @@ import PeriodInfo from "./pages/PeriodInfo";
 import ForgotPassword from "./pages/ForgetPassword";
 import Support from "./pages/Support";
 import Faq from "./pages/Faq";
+import NotFoundPage from "./pages/NotFoundPage";
 
 const isAuthenticated = () => {
   const token = localStorage.getItem("token");
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
   {
     path: "/faq",
     element: <Faq />,
+  },
+  {
+    path: "*",
+    element: <NotFoundPage />,
   },
   {
     path: "/profile",
